@@ -1,0 +1,23 @@
+{
+  "name": "ccdraw1",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@blocksuite/blocks": "0.0.0-20230622140410-30eb2b91-nightly",
+    "@blocksuite/editor": "0.0.0-20230622140410-30eb2b91-nightly",
+    "@blocksuite/lit": "^0.6.0",
+    "@blocksuite/store": "0.0.0-20230622140410-30eb2b91-nightly",
+    "vue": "^3.2.47",
+    "yjs": "^13.6.5"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.1.0",
+    "vite": "^4.3.9"
+  }
+}
