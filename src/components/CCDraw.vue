@@ -1,20 +1,26 @@
 <script setup>
+import { onMounted } from "vue";
+
 import { SimpleAffineEditor } from "@blocksuite/editor";
 import "@blocksuite/editor/themes/affine.css";
 
-try {
-  const host = new SimpleAffineEditor();
-  document.body.appendChild(host);
-  // editor.mode = "edgeless";
-  window.editor = document.querySelector("editor-container");
-  // window.editor.mode = "edgeless";
-} catch (e) {
-  console.error("Failed to load editor");
-  console.error(e);
-}
+onMounted(() => {
+  try {
+    const host = new SimpleAffineEditor();
+    document.getElementById("editor").appendChild(host);
+    // editor.mode = "edgeless";
+    window.editor = document.querySelector("editor-container");
+    // window.editor.mode = "edgeless";
+  } catch (e) {
+    console.error("Failed to load editor");
+    console.error(e);
+  }
+});
 </script>
 
-<template></template>
+<template>
+  <div id="editor" class="w-1/2" style="height: 300px">2222</div>
+</template>
 
 <style scoped>
 .read-the-docs {

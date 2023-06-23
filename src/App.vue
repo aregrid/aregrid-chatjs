@@ -2,30 +2,46 @@
 import CCDraw from "./components/CCDraw.vue";
 </script>
 <template>
-  <div class="h-screen bg-gray-100 flex">
-    <aside class="w-1/4 bg-gray-200 p-4">
-      <h2 class="text-lg font-semibold text-gray-800 mb-4">Sidebar</h2>
-      <!-- Sidebar content goes here -->
-    </aside>
-
-    <div class="flex-1 bg-white">
-      <header class="bg-white border-b border-gray-300 p-4">
-        <h1 class="text-xl font-semibold text-gray-800">
-          Welcome to our Whiteboard
-        </h1>
-      </header>
-
-      <main class="p-4">
-        <h2 class="text-lg font-semibold text-gray-800 mb-4">Whiteboard</h2>
-        <div class="bg-white rounded-lg shadow-md p-6">
-          <!-- Whiteboard content goes here -->
-          <CCDraw />
+  <div class="mx-auto">
+    <div
+      class="w-full shadow-2xl subpixel-antialiased rounded h-64 bg-black border-black mx-auto"
+    >
+      <div
+        class="flex items-center h-6 rounded-t bg-gray-100 border-b border-gray-500 text-center text-black"
+        id="headerTerminal"
+      >
+        <div
+          class="flex ml-2 items-center text-center border-red-900 bg-red-500 shadow-inner rounded-full w-3 h-3"
+          id="closebtn"
+        ></div>
+        <div
+          class="ml-2 border-yellow-900 bg-yellow-500 shadow-inner rounded-full w-3 h-3"
+          id="minbtn"
+        ></div>
+        <div
+          class="ml-2 border-green-900 bg-green-500 shadow-inner rounded-full w-3 h-3"
+          id="maxbtn"
+        ></div>
+        <div class="mx-auto pr-16" id="terminaltitle">
+          <p class="text-center text-sm">Terminal</p>
         </div>
-      </main>
-
-      <footer class="bg-white border-t border-gray-300 p-4 text-gray-600">
-        <p>Footer content goes here</p>
-      </footer>
+      </div>
+      <div
+        class="pl-1 pt-1 h-auto text-green-200 font-mono text-xs bg-black"
+        id="console"
+      >
+        <p class="pb-1">Last login: Wed Sep 25 09:11:04 on ttys002</p>
+        <p class="pb-1">Laraben:Devprojects laraben$</p>
+        <p class="pb-1"><CCDraw /></p>
+        <p class="pb-1">Laraben:Devprojects laraben$</p>
+        <p class="pb-1">Laraben:Devprojects laraben$</p>
+        <p class="pb-1">Laraben:Devprojects laraben$</p>
+        <p class="pb-1">Laraben:Devprojects laraben$</p>
+        <p class="pb-1">Laraben:Devprojects laraben$</p>
+        <p class="pb-1">Laraben:Devprojects laraben$</p>
+        <p class="pb-1">Laraben:Devprojects laraben$</p>
+        <p class="pb-1">Laraben:Devprojects laraben$</p>
+      </div>
     </div>
   </div>
 </template>
