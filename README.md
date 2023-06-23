@@ -1,4 +1,6 @@
-# Vue 3 + Vite
+# ccdraw
+
+<img width="1725" alt="image" src="https://github.com/aregrid/ccdraw/assets/5910926/bf9690f1-3db2-4fa0-a8b1-7e90d600b32b">
 
 This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
 
