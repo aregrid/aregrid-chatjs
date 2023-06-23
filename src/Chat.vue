@@ -1,4 +1,6 @@
-<script setup></script>
+<script setup>
+import CCDraw from "./components/CCDraw.vue";
+</script>
 <template>
   <div class="flex flex-col h-screen bg-gray-100">
     <!-- Header -->
@@ -28,6 +30,18 @@
           <p class="bg-gray-100 rounded p-2 inline-block">
             Hello, how are you?
           </p>
+        </div>
+        <!-- User 2 Chat Message -->
+        <div class="mb-4">
+          <div class="flex items-center">
+            <img
+              src="https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/00/0077f8c11bd1f32199710a0259c9873ce8e7b63b_full.jpg"
+              alt="User 2 Avatar"
+              class="w-8 h-8 rounded-full"
+            />
+            <h2 class="font-bold text-gray-800 ml-2">Jane Smith</h2>
+          </div>
+          <CCDraw />
         </div>
 
         <!-- User 2 Chat Message -->
