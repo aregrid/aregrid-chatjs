@@ -19,7 +19,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div id="editor" class="w-1/2" style="height: 300px">2222</div>
+  <div id="editor"></div>
 </template>
 
 <style scoped>
