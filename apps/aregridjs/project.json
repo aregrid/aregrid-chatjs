@@ -19,7 +19,10 @@
           "apps/aregridjs/src/favicon.ico",
           "apps/aregridjs/src/assets"
         ],
-        "styles": ["apps/aregridjs/src/styles.scss"],
+        "styles": [
+          "apps/aregridjs/src/styles.scss",
+          "@blocksuite/editor/themes/affine.css"
+        ],
         "scripts": []
       },
       "configurations": {
