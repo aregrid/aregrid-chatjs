@@ -1,15 +1,16 @@
 <script setup>
-import { onMounted } from "vue";
+import { onMounted, ref } from "vue";
 
 import { SimpleAffineEditor } from "@blocksuite/editor";
 import "@blocksuite/editor/themes/affine.css";
-
+import "./affine.css";
+const host = ref(null);
 onMounted(() => {
   try {
-    const host = new SimpleAffineEditor();
-    document.getElementById("editor").appendChild(host);
+    const editor = new SimpleAffineEditor();
+    host.value.appendChild(editor);
     // editor.mode = "edgeless";
-    window.editor = document.querySelector("editor-container");
+    // window.editor = document.querySelector("editor-container");
     // window.editor.mode = "edgeless";
   } catch (e) {
     console.error("Failed to load editor");
@@ -19,11 +20,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div id="editor"></div>
+  <div ref="host"></div>
 </template>
 
-<style scoped>
-.read-the-docs {
-  color: #888;
-}
-</style>
+<style scoped></style>
