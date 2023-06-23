@@ -3,8 +3,13 @@ import { ref } from "vue";
 import { SimpleAffineEditor } from "@blocksuite/editor";
 import "@blocksuite/editor/themes/affine.css";
 
-const editor = new SimpleAffineEditor();
-document.body.appendChild(editor);
+try {
+  const editor = new SimpleAffineEditor();
+  document.body.appendChild(editor);
+} catch (e) {
+  console.error("Failed to load editor");
+  console.error(e);
+}
 </script>
 
 <template></template>
