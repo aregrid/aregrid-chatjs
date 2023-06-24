@@ -2,9 +2,8 @@ const ChatHistoryMock = {
   getMessages: () => {
     const messages = [
       {
-        avatar:
-          'https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/00/005099b73f79ca48a6acf026c0021f93f323e9ba_full.jpg',
-        userName: 'Tom',
+        avatar: 'https://avatars.githubusercontent.com/u/5910926?v=4',
+        userName: 'Chi Zhang',
         content:
           "I have some ideas for the new iteration of aregridjs. Let's discuss!",
       },
@@ -23,9 +22,8 @@ const ChatHistoryMock = {
           "I'm also interested in the new iteration. We should focus on code collaboration features.",
       },
       {
-        avatar:
-          'https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/00/005099b73f79ca48a6acf026c0021f93f323e9ba_full.jpg',
-        userName: 'Tom',
+        avatar: 'https://avatars.githubusercontent.com/u/5910926?v=4',
+        userName: 'Chi Zhang',
         content: 'I think we should prioritize improving the documentation.',
       },
       {
@@ -41,9 +39,8 @@ const ChatHistoryMock = {
         content: 'We should consider integrating with popular UI frameworks.',
       },
       {
-        avatar:
-          'https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/00/005099b73f79ca48a6acf026c0021f93f323e9ba_full.jpg',
-        userName: 'Tom',
+        avatar: 'https://avatars.githubusercontent.com/u/5910926?v=4',
+        userName: 'Chi Zhang',
         content: 'I have some suggestions for improving the API design.',
       },
       {
@@ -59,9 +56,8 @@ const ChatHistoryMock = {
         content: 'Let me create a task board to manage our progress.',
       },
       {
-        avatar:
-          'https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/00/005099b73f79ca48a6acf026c0021f93f323e9ba_full.jpg',
-        userName: 'Tom',
+        avatar: 'https://avatars.githubusercontent.com/u/5910926?v=4',
+        userName: 'Chi Zhang',
         content: 'We should conduct user testing for better usability.',
       },
       {
@@ -77,9 +73,8 @@ const ChatHistoryMock = {
         content: 'We can enhance the code editor with syntax highlighting.',
       },
       {
-        avatar:
-          'https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/00/005099b73f79ca48a6acf026c0021f93f323e9ba_full.jpg',
-        userName: 'Tom',
+        avatar: 'https://avatars.githubusercontent.com/u/5910926?v=4',
+        userName: 'Chi Zhang',
         content: 'I will prepare a roadmap for the next iteration.',
       },
       {
@@ -96,10 +91,9 @@ const ChatHistoryMock = {
         content: 'Let me investigate potential performance optimizations.',
       },
       {
-        avatar:
-          'https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/00/005099b73f79ca48a6acf026c0021f93f323e9ba_full.jpg',
-        userName: 'Tom',
-        content: 'We should consider integrating automated testing.',
+        avatar: 'https://avatars.githubusercontent.com/u/5910926?v=4',
+        userName: 'Chi Zhang',
+        content: 'We should consider integrating auChi Zhangated testing.',
       },
       {
         avatar:
@@ -114,9 +108,8 @@ const ChatHistoryMock = {
         content: 'We should write comprehensive documentation for the APIs.',
       },
       {
-        avatar:
-          'https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/00/005099b73f79ca48a6acf026c0021f93f323e9ba_full.jpg',
-        userName: 'Tom',
+        avatar: 'https://avatars.githubusercontent.com/u/5910926?v=4',
+        userName: 'Chi Zhang',
         content: 'Let me create a design mockup for the new UI components.',
       },
       {
