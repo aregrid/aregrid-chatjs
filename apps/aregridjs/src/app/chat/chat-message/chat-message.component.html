@@ -1,10 +1,10 @@
-<div class="mb-4 flex items-start animate-slide-in">
+<div class="mb-4 flex flex-wrap items-start animate-slide-in">
   <img
     [src]="avatar"
     [alt]="userName + ' Avatar'"
     class="w-12 h-auto rounded-full"
   />
-  <div class="ml-4 w-1/2">
+  <div class="ml-4 w-full md:w-1/2">
     <h2 class="font-bold text-gray-800 mb-1">{{ userName }}</h2>
     <div class="message-content bg-gray-100 rounded animate-fade-in">
       <ng-content></ng-content>

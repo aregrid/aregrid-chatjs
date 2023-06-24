@@ -21,15 +21,17 @@ import { FooterComponent } from './footer/footer.component';
 export class ChatComponent implements OnInit {
   chatMessages: { avatar: string; userName: string; content: string }[] = [];
   currentIndex = 0;
-
+  timer: any;
   ngOnInit() {
     const messages = ChatHistoryMock.getMessages();
 
-    setInterval(() => {
+    this.timer = setInterval(() => {
       if (this.currentIndex < messages.length) {
         const newMessage = messages[this.currentIndex];
         this.chatMessages.push(newMessage);
         this.currentIndex++;
+      } else {
+        clearInterval(this.timer);
       }
     }, 1000);
   }
