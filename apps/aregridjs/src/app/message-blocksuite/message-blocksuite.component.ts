@@ -22,5 +22,7 @@ export class MessageBlocksuiteComponent implements AfterViewInit {
   ngAfterViewInit() {
     const editor = new SimpleAffineEditor();
     this.messageBox && this.messageBox.nativeElement.appendChild(editor);
+
+    (window as any).blocksuiteEditor = editor;
   }
 }
