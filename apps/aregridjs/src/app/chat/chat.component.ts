@@ -33,6 +33,6 @@ export class ChatComponent implements OnInit {
       } else {
         clearInterval(this.timer);
       }
-    }, 1000);
+    }, 500);
   }
 }
