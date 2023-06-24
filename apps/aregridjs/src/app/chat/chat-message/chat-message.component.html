@@ -1,0 +1,11 @@
+<div class="mb-4">
+  <div class="flex items-center">
+    <img
+      [src]="avatar"
+      [alt]="userName + ' Avatar'"
+      class="w-8 h-8 rounded-full"
+    />
+    <h2 class="font-bold text-gray-800 ml-2">{{ userName }}</h2>
+  </div>
+  <ng-content></ng-content>
+</div>

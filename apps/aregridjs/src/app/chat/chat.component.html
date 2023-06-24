@@ -6,12 +6,12 @@
     <!-- Message Input Field -->
     <!-- Chat Area -->
     <main class="flex-grow p-6 overflow-y-scroll border-r">
-      <aregrid-chat-message
-        avatar="https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/00/005099b73f79ca48a6acf026c0021f93f323e9ba_full.jpg"
-        user="John Doe"
-      >
-        <p class="bg-gray-100 rounded p-2 inline-block">Hello, how are you?</p>
-      </aregrid-chat-message>
+      <ng-container *ngFor="let message of chatMessages">
+        <aregrid-chat-message [avatar]="message.avatar" [userName]="message.userName">
+          <!-- Chat message content -->
+          <p class="bg-gray-100 rounded p-2 inline-block">{{ message.content }}</p>
+        </aregrid-chat-message>
+      </ng-container>
 
       <aregrid-chat-message
         avatar="https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/00/0077f8c11bd1f32199710a0259c9873ce8e7b63b_full.jpg"
