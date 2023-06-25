@@ -1,12 +1,46 @@
-<header
-  class="h-20 bg-gradient-to-r from-indigo-600 to-blue-500 shadow flex items-center justify-between px-3"
->
-  <h1 class="text-2xl font-bold text-white">Aregrid Workspace</h1>
-  <div class="flex items-center space-x-4">
+<!-- Parent Component -->
+<div>
+  <button
+    *ngIf="!isHeaderVisible"
+    class="fixed bottom-4 right-4 bg-blue-500 text-white px-4 py-2 rounded-full transition-all duration-300"
+    (click)="toggleHeader()"
+  >
+    Show Header
+  </button>
+
+  <header
+    class="h-16 bg-gradient-to-r from-indigo-600 to-blue-500 shadow flex items-center justify-between px-3 transition-all duration-300"
+    [ngClass]="{ hidden: !isHeaderVisible }"
+  >
+    <h1 class="text-base font-semibold text-white">Aregrid Workspace</h1>
+    <div class="flex items-center justify-center flex-grow">
+      <div class="relative w-56">
+        <input
+          type="text"
+          class="w-full h-full bg-white bg-no-repeat bg-right px-4 py-2 rounded-lg text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300"
+          placeholder="Search"
+        />
+        <div class="absolute top-1/2 right-2 -translate-y-1/2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            class="w-4 h-4 text-gray-600"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M9 3a6 6 0 100 12a6 6 0 000-12zm0 11a5 5 0 110-10a5 5 0 010 10zM18.707 17.293a1 1 0 11-1.414 1.414l-3.853-3.854a8 8 0 111.414-1.414l3.853 3.854z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
     <button
-      class="bg-blue-700 hover:bg-blue-600 text-white px-6 py-3 rounded-lg text-sm"
+      class="text-white text-sm font-semibold focus:outline-none hover:underline"
+      (click)="toggleHeader()"
     >
-      Start New Workspace
+      Hide Header
     </button>
-  </div>
-</header>
+  </header>
+</div>
