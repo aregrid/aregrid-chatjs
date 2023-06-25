@@ -11,34 +11,29 @@ import { WorkspaceItemComponent } from './workspace-item/workspace-item.componen
 export class SidebarComponent {
   workspaces = [
     {
-      avatar:
-        'https://randomwordgenerator.com/img/picture-generator/55e9d4424f56ae14f1dc8460962e33791c3ad6e04e507749712e79d1974bc6_640.jpg',
-      name: 'Company A',
-      subtitle: 'Shared Office Space',
+      avatar: 'https://example.com/lifestyle.jpg',
+      name: 'Life',
+      subtitle: 'Record special moments',
     },
     {
-      avatar:
-        'https://randomwordgenerator.com/img/picture-generator/55e9d4424f56ae14f1dc8460962e33791c3ad6e04e507749712e79d1974bc6_640.jpg',
-      name: 'Company B',
-      subtitle: 'Collaborative Workspace',
+      avatar: 'https://example.com/creativity.jpg',
+      name: 'Creativity',
+      subtitle: 'Explore artistic expressions',
     },
     {
-      avatar:
-        'https://randomwordgenerator.com/img/picture-generator/55e9d4424f56ae14f1dc8460962e33791c3ad6e04e507749712e79d1974bc6_640.jpg',
-      name: 'Company C',
-      subtitle: 'Creative Studio',
+      avatar: 'https://example.com/art.jpg',
+      name: 'Art',
+      subtitle: 'Express your artistic side',
     },
     {
-      avatar:
-        'https://randomwordgenerator.com/img/picture-generator/55e9d4424f56ae14f1dc8460962e33791c3ad6e04e507749712e79d1974bc6_640.jpg',
-      name: 'Company D',
-      subtitle: 'Virtual Office',
+      avatar: 'https://example.com/thoughts.jpg',
+      name: 'Thoughts',
+      subtitle: 'Capture your ideas and reflections',
     },
     {
-      avatar:
-        'https://randomwordgenerator.com/img/picture-generator/55e9d4424f56ae14f1dc8460962e33791c3ad6e04e507749712e79d1974bc6_640.jpg',
-      name: 'Company E',
-      subtitle: 'Meeting Room Rental',
+      avatar: 'https://example.com/love.jpg',
+      name: 'Love',
+      subtitle: 'Celebrate the power of love',
     },
   ];
 }
