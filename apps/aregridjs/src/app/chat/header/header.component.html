@@ -9,9 +9,10 @@
   </button>
 
   <header
-    class="h-16 bg-gradient-to-r from-indigo-600 to-blue-500 shadow flex items-center justify-between px-3 transition-all duration-300"
+    class="bg-gradient-to-r from-indigo-600 to-blue-500 shadow flex items-center justify-between px-3 transition-all duration-300"
     [ngClass]="{
       'h-0': !isHeaderVisible,
+      'h-16': isHeaderVisible,
       'opacity-0': !isHeaderVisible,
       'translate-y-full': !isHeaderVisible
     }"

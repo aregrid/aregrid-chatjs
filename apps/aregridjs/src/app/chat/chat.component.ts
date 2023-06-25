@@ -5,6 +5,7 @@ import { HeaderComponent } from './header/header.component';
 import { ChatMessageComponent } from './chat-message/chat-message.component';
 import { ChatHistoryMock } from './chat-history-mock';
 import { FooterComponent } from './footer/footer.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 @Component({
   selector: 'aregrid-chat',
   standalone: true,
@@ -14,6 +15,7 @@ import { FooterComponent } from './footer/footer.component';
     HeaderComponent,
     ChatMessageComponent,
     FooterComponent,
+    SidebarComponent
   ],
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.scss'],
