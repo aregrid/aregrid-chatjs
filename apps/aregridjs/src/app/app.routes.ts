@@ -5,6 +5,6 @@ export const appRoutes: Route[] = [
   {
     path: '',
     component: ChatComponent,
-    title: 'Aregrid Workspace',
+    title: 'Workspace | Aregrid',
   },
 ];
