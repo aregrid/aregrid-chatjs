@@ -1,4 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ElementRef,
+  Renderer2,
+  Directive,
+  CUSTOM_ELEMENTS_SCHEMA,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MessageBlocksuiteComponent } from '../message-blocksuite/message-blocksuite.component';
 import { HeaderComponent } from './header/header.component';
@@ -6,6 +13,7 @@ import { ChatMessageComponent } from './chat-message/chat-message.component';
 import { ChatHistoryMock } from './chat-history-mock';
 import { FooterComponent } from './footer/footer.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+
 @Component({
   selector: 'aregrid-chat',
   standalone: true,
@@ -15,7 +23,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     HeaderComponent,
     ChatMessageComponent,
     FooterComponent,
-    SidebarComponent
+    SidebarComponent,
   ],
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.scss'],

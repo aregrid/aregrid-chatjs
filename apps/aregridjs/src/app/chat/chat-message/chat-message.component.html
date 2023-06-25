@@ -9,7 +9,20 @@
     <div
       class="message-content border rounded p-4 shadow-md relative group-hover:bg-gray-100 hover:shadow-lg hover:transform hover:-rotate-2 transition duration-300"
     >
+      <div class="highlight-underline">
+        <svg class="highlight-underline-line" viewBox="0 0 100 10">
+          <path
+            d="M0 8 C30 2, 70 2, 100 8"
+            fill="none"
+            stroke="black"
+            stroke-width="1"
+          />
+        </svg>
+        <span class="highlight-underline-text">{{ content }}</span>
+      </div>
+
       <ng-content></ng-content>
+
       <button
         class="absolute top-2 right-2 bg-purple-500 text-white rounded p-2 opacity-0 group-hover:opacity-100 transform scale-0 group-hover:scale-100 transition-all duration-300"
       >
