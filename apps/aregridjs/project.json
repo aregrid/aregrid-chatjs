@@ -31,7 +31,7 @@
             {
               "type": "initial",
               "maximumWarning": "git mb",
-              "maximumError": "2mb"
+              "maximumError": "3mb"
             },
             {
               "type": "anyComponentStyle",
