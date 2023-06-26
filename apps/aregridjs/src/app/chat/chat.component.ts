@@ -7,7 +7,7 @@ import {
   CUSTOM_ELEMENTS_SCHEMA,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MessageBlocksuiteComponent } from '../message-blocksuite/message-blocksuite.component';
+import { AFFiNEComponent } from '../affine/affine.component';
 import { HeaderComponent } from './header/header.component';
 import { ChatMessageComponent } from './chat-message/chat-message.component';
 import { ChatHistoryMock } from './chat-history-mock';
@@ -19,7 +19,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
   standalone: true,
   imports: [
     CommonModule,
-    MessageBlocksuiteComponent,
+    AFFiNEComponent,
     HeaderComponent,
     ChatMessageComponent,
     FooterComponent,

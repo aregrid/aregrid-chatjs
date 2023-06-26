@@ -6,18 +6,20 @@ import {
   Renderer2,
   Input,
 } from '@angular/core';
-import pageSnapShot from './page-snapshot-mock';
+import pageSnapShotForChat from './page-snapshot-chat';
+import pageSnapShotForAFFiNE from './page-snapshot-affine';
+
 import { CommonModule } from '@angular/common';
 import { SimpleAffineEditor } from '@blocksuite/editor';
 
 @Component({
-  selector: 'aregrid-message-blocksuite',
+  selector: 'aregrid-affine',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './message-blocksuite.component.html',
-  styleUrls: ['./message-blocksuite.component.scss'],
+  templateUrl: './affine.component.html',
+  styleUrls: ['./affine.component.scss'],
 })
-export class MessageBlocksuiteComponent implements AfterViewInit {
+export class AFFiNEComponent implements AfterViewInit {
   @ViewChild('messageBox') messageBox: ElementRef<HTMLDivElement> | null = null;
   constructor(private renderer: Renderer2) {}
   @Input() templateId: string | undefined;
@@ -28,9 +30,15 @@ export class MessageBlocksuiteComponent implements AfterViewInit {
 
     (window as any).blocksuiteEditor = editor;
 
+    if (this.templateId === 'chat') {
+      editor.workspace.importPageSnapshot(
+        pageSnapShotForChat.data['space:hello-world'],
+        'page0'
+      );
+    }
     if (this.templateId === 'affine') {
       editor.workspace.importPageSnapshot(
-        pageSnapShot.data['space:hello-world'],
+        pageSnapShotForAFFiNE.data['space:hello-world'],
         'page0'
       );
     }
