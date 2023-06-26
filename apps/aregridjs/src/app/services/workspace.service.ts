@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { Workspace } from './workspace-store.service';
+export interface Workspace {
+  avatar: string;
+  name: string;
+  subtitle: string;
+}
 
 @Injectable({
   providedIn: 'root',

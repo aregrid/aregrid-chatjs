@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { WorkspaceItemComponent } from './workspace-item/workspace-item.component';
-import { WorkspaceService } from '../../services/workspace.service';
-import { Workspace } from '../../services/workspace-store.service';
-
+import { WorkspaceService,Workspace } from '../../services/workspace.service';
+import { UserService, User } from '../../services/user.service';
 @Component({
   selector: 'aregrid-sidebar',
   standalone: true,
@@ -13,10 +12,21 @@ import { Workspace } from '../../services/workspace-store.service';
 })
 export class SidebarComponent {
   workspaces!: Workspace[];
+  user!: User;
+  sidebarCollapsed = false;
 
-  constructor(private workspaceService: WorkspaceService) {}
-
+  constructor(
+    private workspaceService: WorkspaceService,
+    private userService: UserService
+  ) {}
+  toggleSidebar() {
+    this.sidebarCollapsed = !this.sidebarCollapsed;
+  }
   ngOnInit() {
+    this.userService.getUser().subscribe((user: User) => {
+      this.user = user;
+    });
+
     this.workspaceService.workspaces$.subscribe((workspaces: Workspace[]) => {
       this.workspaces = workspaces;
     });
