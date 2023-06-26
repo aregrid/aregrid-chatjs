@@ -5,7 +5,7 @@ import {
   AfterViewInit,
   Renderer2,
 } from '@angular/core';
-
+import pageSnapShot from './page-snapshot-mock';
 import { CommonModule } from '@angular/common';
 import { SimpleAffineEditor } from '@blocksuite/editor';
 
@@ -24,5 +24,10 @@ export class MessageBlocksuiteComponent implements AfterViewInit {
     this.messageBox && this.messageBox.nativeElement.appendChild(editor);
 
     (window as any).blocksuiteEditor = editor;
+
+    editor.workspace.importPageSnapshot(
+      pageSnapShot.data['space:hello-world'],
+      'page0'
+    );
   }
 }
