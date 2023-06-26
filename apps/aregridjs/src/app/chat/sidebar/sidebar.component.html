@@ -11,10 +11,8 @@
       hidden: sidebarCollapsed
     }"
   >
-    <!-- Workspace 列表 -->
     <h2 class="text-lg font-semibold mb-4">Workspaces</h2>
     <ul class="space-y-2">
-      <!-- 单个 Workspace -->
       <aregrid-workspace-item
         class="flex items-center p-2 space-x-4 hover:shadow-lg hover:transform hover:-rotate-2 transition duration-300 hover:bg-gray-600 hover:rounded-xl"
         *ngFor="let workspace of workspaces"
@@ -23,7 +21,14 @@
         [subtitle]="workspace.subtitle"
       ></aregrid-workspace-item>
 
-      <button (click)="addWorkspace()">Add Workspace</button>
+      <div class="flex justify-center">
+        <button
+          class="text-gray-400 text-sm rounded-lg px-3 py-2 bg-gray-600 hover:bg-gray-700 transition duration-300"
+          (click)="addWorkspace()"
+        >
+          Add Workspace +
+        </button>
+      </div>
     </ul>
   </div>
   <div
@@ -33,7 +38,6 @@
     }"
   >
     <div class="flex items-center">
-      <!-- 当前登录用户头像和名称 -->
       <img
         src="{{ user.avatar }}"
         alt="User Avatar"
