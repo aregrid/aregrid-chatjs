@@ -8,26 +8,99 @@
 
   <!-- Main content (chat area and input field) -->
   <div class="flex flex-grow flex-col lg:flex-row overflow-hidden">
-    <!-- Message Input Field -->
     <!-- Chat Area -->
     <main class="flex-grow p-6 overflow-y-scroll border-r">
-      <aregrid-chat-message
-        avatar="https://avatars.githubusercontent.com/u/5910926?v=4"
-        user="Chi Zhang"
+      <div
+        class="flex flex-col relative"
+        [ngStyle]="{ height: 'calc(100% - 4rem)' }"
       >
-        <aregrid-message-blocksuite
-          templateId="affine"
-        ></aregrid-message-blocksuite>
-      </aregrid-chat-message>
-      <ng-container *ngFor="let message of chatMessages">
-        <aregrid-chat-message
-          [avatar]="message.avatar"
-          [userName]="message.userName"
-          [content]="message.content"
-        >
-        </aregrid-chat-message>
-      </ng-container>
+        <div class="flex flex-col flex-grow overflow-y-scroll mt-4">
+          <div class="flex-shrink-0">
+            <aregrid-chat-message
+              avatar="https://avatars.githubusercontent.com/u/5910926?v=4"
+              user="Chi Zhang"
+            >
+              <aregrid-message-blocksuite
+                templateId="affine"
+              ></aregrid-message-blocksuite>
+            </aregrid-chat-message>
+          </div>
+          <div class="flex flex-col space-y-4 mt-4 h-16">
+            <ng-container *ngFor="let message of chatMessages">
+              <aregrid-chat-message
+                [avatar]="message.avatar"
+                [userName]="message.userName"
+                [content]="message.content"
+              >
+              </aregrid-chat-message>
+            </ng-container>
+            <div #chatBottom></div>
+          </div>
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 h-16">
+          <!-- Slack-style chat input -->
+          <div class="flex bg-white rounded-lg shadow p-4">
+            <input
+              type="text"
+              placeholder="Type a message..."
+              class="flex-grow outline-none px-2 py-1 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-blue-500"
+            />
+            <button
+              type="button"
+              class="ml-2 px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600"
+            >
+              Send
+            </button>
+            <div class="flex items-center ml-2">
+              <button
+                type="button"
+                class="px-2 py-1 bg-gray-200 rounded-full hover:bg-gray-300"
+                title="Add Emoji"
+              >
+                😄
+              </button>
+              <input
+                type="file"
+                accept="image/*"
+                class="hidden"
+                (change)="handleImageUpload($event)"
+              />
+              <button
+                type="button"
+                class="px-2 py-1 bg-gray-200 rounded-full hover:bg-gray-300"
+                title="Upload Image"
+                (click)="openImageUploader()"
+              >
+                📷
+              </button>
+              <input
+                type="file"
+                accept=".pdf,.docx,.xlsx"
+                class="hidden"
+                (change)="handleDocumentUpload($event)"
+              />
+              <button
+                type="button"
+                class="px-2 py-1 bg-gray-200 rounded-full hover:bg-gray-300"
+                title="Attach Document"
+                (click)="openDocumentUploader()"
+              >
+                📎
+              </button>
+              <button
+                type="button"
+                class="px-2 py-1 bg-gray-200 rounded-full hover:bg-gray-300"
+                title="Schedule Meeting"
+                (click)="openMeetingScheduler()"
+              >
+                📅
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
+
     <aregrid-footer />
   </div>
 </div>
