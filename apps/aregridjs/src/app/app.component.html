@@ -1,3 +1,30 @@
 <main>
   <router-outlet></router-outlet>
 </main>
+<div
+  class="fixed top-4 right-0 bg-blue-500 text-white p-4 rounded-lg shadow-lg block lg:hidden"
+>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    class="h-6 w-6 inline mr-2"
+    viewBox="0 0 20 20"
+    fill="currentColor"
+  >
+    <path
+      fill-rule="evenodd"
+      d="M0 10a10 10 0 1120 0 10 10 0 01-20 0zm11-2a1 1 0 00-2 0v4a1 1 0 002 0v-4zm-1 8a1 1 0 100-2 1 1 0 000 2z"
+      clip-rule="evenodd"
+    />
+  </svg>
+  <span class="font-bold"
+    >For the best experience, please view this website on a pc device.</span
+  >
+</div>
+
+<style>
+  @media (min-width: 1024px) {
+    .hidden-on-desktop {
+      display: none;
+    }
+  }
+</style>
