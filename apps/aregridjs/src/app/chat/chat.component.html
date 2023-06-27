@@ -15,17 +15,20 @@
         [ngStyle]="{ height: 'calc(100% - 4rem)' }"
       >
         <div class="flex flex-col flex-grow overflow-y-scroll mt-4">
-          <div class="flex-shrink-0">
-            <aregrid-chat-message
-              avatar="https://avatars.githubusercontent.com/u/5910926?v=4"
-              user="Chi Zhang"
-            >
-              <aregrid-affine templateId="chat"></aregrid-affine>
-            </aregrid-chat-message>
-          </div>
+          <div class="flex-shrink-0"></div>
           <div class="flex flex-col space-y-4 mt-4">
             <ng-container *ngFor="let message of chatMessages">
               <aregrid-chat-message
+                *ngIf="message.type === 'affine'"
+                [avatar]="message.userAvatar"
+                [userName]="message.userName"
+                [content]="message.content"
+              >
+                <aregrid-affine templateId="chat"></aregrid-affine>
+              </aregrid-chat-message>
+
+              <aregrid-chat-message
+                *ngIf="message.type === 'text'"
                 [avatar]="message.userAvatar"
                 [userName]="message.userName"
                 [content]="message.content"
@@ -51,6 +54,13 @@
               (click)="sendMessage()"
             >
               Send
+            </button>
+            <button
+              type="button"
+              class="ml-2 px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600"
+              (click)="sendMessage('affine')"
+            >
+              Send affine
             </button>
             <div class="flex items-center ml-2">
               <button

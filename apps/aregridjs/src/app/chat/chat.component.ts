@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { AFFiNEComponent } from '../affine/affine.component';
 import { HeaderComponent } from './header/header.component';
 import { ChatMessageComponent } from './chat-message/chat-message.component';
-import { ChatHistoryMock } from './chat-history-mock';
+import { ChatHistoryMock, ChatMessage } from './chat-history-mock';
 import { FooterComponent } from './footer/footer.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { UserService, User } from '../services/user.service';
@@ -24,8 +24,7 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./chat.component.scss'],
 })
 export class ChatComponent implements OnInit {
-  chatMessages: { userAvatar: string; userName: string; content: string }[] =
-    [];
+  chatMessages: ChatMessage[] = [];
   @ViewChild('chatBottom') chatBottom!: ElementRef;
   currentIndex = 0;
   newMessage = '';
@@ -52,16 +51,25 @@ export class ChatComponent implements OnInit {
       }
     }, 500);
   }
-  sendMessage() {
-    if (this.newMessage.trim() !== '') {
+  sendMessage(chatMessageType?: 'text' | 'affine') {
+    if (chatMessageType === 'affine') {
       this.chatMessages.push({
         content: this.newMessage,
         userName: this.user.name,
         userAvatar: this.user.avatar,
+        type: 'affine',
       });
-      this.newMessage = '';
-      this.scrollToBottom();
+    } else {
+      this.chatMessages.push({
+        content: this.newMessage || 'hello',
+        userName: this.user.name,
+        userAvatar: this.user.avatar,
+        type: 'text',
+      });
     }
+
+    this.newMessage = '';
+    this.scrollToBottom();
   }
 
   // 滚动方法
