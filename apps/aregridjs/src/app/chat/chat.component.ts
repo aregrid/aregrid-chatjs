@@ -6,7 +6,7 @@ import { ChatMessageComponent } from './chat-message/chat-message.component';
 import { ChatHistoryMock } from './chat-history-mock';
 import { FooterComponent } from './footer/footer.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
-
+import { UserService, User } from '../services/user.service';
 @Component({
   selector: 'aregrid-chat',
   standalone: true,
@@ -22,12 +22,20 @@ import { SidebarComponent } from './sidebar/sidebar.component';
   styleUrls: ['./chat.component.scss'],
 })
 export class ChatComponent implements OnInit {
-  chatMessages: { avatar: string; userName: string; content: string }[] = [];
-  currentIndex = 0;
-  timer: any;
+  chatMessages: { userAvatar: string; userName: string; content: string }[] =
+    [];
   @ViewChild('chatBottom') chatBottom!: ElementRef;
+  currentIndex = 0;
+  newMessage = '';
+  timer: any;
+  user!: User;
 
+  constructor(private userService: UserService) {}
   ngOnInit() {
+    this.userService.getUser().subscribe((user: User) => {
+      this.user = user;
+    });
+
     const messages = ChatHistoryMock.getMessages();
 
     this.timer = setInterval(() => {
@@ -41,6 +49,21 @@ export class ChatComponent implements OnInit {
         clearInterval(this.timer);
       }
     }, 500);
+  }
+  sendMessage() {
+    // if (event) {
+    //   event.preventDefault();
+    // }
+    this.newMessage = this.newMessage + 'hello';
+    if (this.newMessage.trim() !== '') {
+      this.chatMessages.push({
+        content: this.newMessage,
+        userName: this.user.name,
+        userAvatar: this.user.avatar,
+      });
+      this.newMessage = '';
+      this.scrollToBottom();
+    }
   }
 
   // 滚动方法

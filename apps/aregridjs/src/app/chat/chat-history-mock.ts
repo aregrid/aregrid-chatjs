@@ -2,124 +2,124 @@ const ChatHistoryMock = {
   getMessages: () => {
     const messages = [
       {
-        avatar: 'https://avatars.githubusercontent.com/u/5910926?v=4',
+        userAvatar: 'https://avatars.githubusercontent.com/u/5910926?v=4',
         userName: 'Chi Zhang',
         content:
           "I have some ideas for the new iteration of aregridjs. Let's discuss!",
       },
       {
-        avatar:
+        userAvatar:
           'https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/00/0077f8c11bd1f32199710a0259c9873ce8e7b63b_full.jpg',
         userName: 'Jack',
         content:
           "Sure, I'm excited to hear your ideas. Let's make aregridjs even better!",
       },
       {
-        avatar:
+        userAvatar:
           'https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/35/35547e0ab2d4ff89ed4d1b5347f2ec27170ee224_full.jpg',
         userName: 'Loius',
         content:
           "I'm also interested in the new iteration. We should focus on code collaboration features.",
       },
       {
-        avatar: 'https://avatars.githubusercontent.com/u/5910926?v=4',
+        userAvatar: 'https://avatars.githubusercontent.com/u/5910926?v=4',
         userName: 'Chi Zhang',
         content: 'I think we should prioritize improving the documentation.',
       },
       {
-        avatar:
+        userAvatar:
           'https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/00/0077f8c11bd1f32199710a0259c9873ce8e7b63b_full.jpg',
         userName: 'Jack',
         content: 'What about adding support for virtual scrolling?',
       },
       {
-        avatar:
+        userAvatar:
           'https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/35/35547e0ab2d4ff89ed4d1b5347f2ec27170ee224_full.jpg',
         userName: 'Loius',
         content: 'We should consider integrating with popular UI frameworks.',
       },
       {
-        avatar: 'https://avatars.githubusercontent.com/u/5910926?v=4',
+        userAvatar: 'https://avatars.githubusercontent.com/u/5910926?v=4',
         userName: 'Chi Zhang',
         content: 'I have some suggestions for improving the API design.',
       },
       {
-        avatar:
+        userAvatar:
           'https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/00/0077f8c11bd1f32199710a0259c9873ce8e7b63b_full.jpg',
         userName: 'Jack',
         content: 'We can also optimize performance for large datasets.',
       },
       {
-        avatar:
+        userAvatar:
           'https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/35/35547e0ab2d4ff89ed4d1b5347f2ec27170ee224_full.jpg',
         userName: 'Loius',
         content: 'Let me create a task board to manage our progress.',
       },
       {
-        avatar: 'https://avatars.githubusercontent.com/u/5910926?v=4',
+        userAvatar: 'https://avatars.githubusercontent.com/u/5910926?v=4',
         userName: 'Chi Zhang',
         content: 'We should conduct user testing for better usability.',
       },
       {
-        avatar:
+        userAvatar:
           'https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/00/0077f8c11bd1f32199710a0259c9873ce8e7b63b_full.jpg',
         userName: 'Jack',
         content: 'Let me create some sample demos for the documentation.',
       },
       {
-        avatar:
+        userAvatar:
           'https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/35/35547e0ab2d4ff89ed4d1b5347f2ec27170ee224_full.jpg',
         userName: 'Loius',
         content: 'We can enhance the code editor with syntax highlighting.',
       },
       {
-        avatar: 'https://avatars.githubusercontent.com/u/5910926?v=4',
+        userAvatar: 'https://avatars.githubusercontent.com/u/5910926?v=4',
         userName: 'Chi Zhang',
         content: 'I will prepare a roadmap for the next iteration.',
       },
       {
-        avatar:
+        userAvatar:
           'https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/00/0077f8c11bd1f32199710a0259c9873ce8e7b63b_full.jpg',
         userName: 'Jack',
         content:
           'We can gather feedback from the community for feature requests.',
       },
       {
-        avatar:
+        userAvatar:
           'https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/35/35547e0ab2d4ff89ed4d1b5347f2ec27170ee224_full.jpg',
         userName: 'Loius',
         content: 'Let me investigate potential performance optimizations.',
       },
       {
-        avatar: 'https://avatars.githubusercontent.com/u/5910926?v=4',
+        userAvatar: 'https://avatars.githubusercontent.com/u/5910926?v=4',
         userName: 'Chi Zhang',
         content: 'We should consider integrating auChi Zhangated testing.',
       },
       {
-        avatar:
+        userAvatar:
           'https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/00/0077f8c11bd1f32199710a0259c9873ce8e7b63b_full.jpg',
         userName: 'Jack',
         content: 'I will create a demo video showcasing the new features.',
       },
       {
-        avatar:
+        userAvatar:
           'https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/35/35547e0ab2d4ff89ed4d1b5347f2ec27170ee224_full.jpg',
         userName: 'Loius',
         content: 'We should write comprehensive documentation for the APIs.',
       },
       {
-        avatar: 'https://avatars.githubusercontent.com/u/5910926?v=4',
+        userAvatar: 'https://avatars.githubusercontent.com/u/5910926?v=4',
         userName: 'Chi Zhang',
         content: 'Let me create a design mockup for the new UI components.',
       },
       {
-        avatar:
+        userAvatar:
           'https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/00/0077f8c11bd1f32199710a0259c9873ce8e7b63b_full.jpg',
         userName: 'Jack',
         content: 'We should optimize the bundle size for faster loading.',
       },
       {
-        avatar:
+        userAvatar:
           'https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/35/35547e0ab2d4ff89ed4d1b5347f2ec27170ee224_full.jpg',
         userName: 'Loius',
         content: 'Let me investigate potential security enhancements.',
