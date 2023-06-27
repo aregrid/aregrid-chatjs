@@ -7,6 +7,7 @@ import { ChatHistoryMock } from './chat-history-mock';
 import { FooterComponent } from './footer/footer.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { UserService, User } from '../services/user.service';
+import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'aregrid-chat',
   standalone: true,
@@ -17,6 +18,7 @@ import { UserService, User } from '../services/user.service';
     ChatMessageComponent,
     FooterComponent,
     SidebarComponent,
+    FormsModule,
   ],
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.scss'],
@@ -51,10 +53,6 @@ export class ChatComponent implements OnInit {
     }, 500);
   }
   sendMessage() {
-    // if (event) {
-    //   event.preventDefault();
-    // }
-    this.newMessage = this.newMessage + 'hello';
     if (this.newMessage.trim() !== '') {
       this.chatMessages.push({
         content: this.newMessage,
