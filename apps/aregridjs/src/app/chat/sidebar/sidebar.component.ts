@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { WorkspaceItemComponent } from './workspace-item/workspace-item.component';
-import { WorkspaceService,Workspace } from '../../services/workspace.service';
+import { WorkspaceService, Workspace } from '../../services/workspace.service';
 import { UserService, User } from '../../services/user.service';
 @Component({
   selector: 'aregrid-sidebar',
@@ -41,21 +41,6 @@ export class SidebarComponent {
         avatar: 'https://example.com/creativity.jpg',
         name: 'Creativity',
         subtitle: 'Explore artistic expressions',
-      },
-      {
-        avatar: 'https://example.com/art.jpg',
-        name: 'Art',
-        subtitle: 'Express your artistic side',
-      },
-      {
-        avatar: 'https://example.com/thoughts.jpg',
-        name: 'Thoughts',
-        subtitle: 'Capture your ideas and reflections',
-      },
-      {
-        avatar: 'https://example.com/love.jpg',
-        name: 'Love',
-        subtitle: 'Celebrate the power of love',
       },
     ];
     this.workspaceService.setWorkspaces(DEFAULT_WORKSPACES);
