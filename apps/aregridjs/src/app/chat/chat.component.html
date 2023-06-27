@@ -20,12 +20,10 @@
               avatar="https://avatars.githubusercontent.com/u/5910926?v=4"
               user="Chi Zhang"
             >
-              <aregrid-affine
-                templateId="chat"
-              ></aregrid-affine>
+              <aregrid-affine templateId="chat"></aregrid-affine>
             </aregrid-chat-message>
           </div>
-          <div class="flex flex-col space-y-4 mt-4 h-16">
+          <div class="flex flex-col space-y-4 mt-4">
             <ng-container *ngFor="let message of chatMessages">
               <aregrid-chat-message
                 [avatar]="message.avatar"
@@ -34,7 +32,7 @@
               >
               </aregrid-chat-message>
             </ng-container>
-            <div #chatBottom></div>
+            <div #chatBottom class="pb-16"></div>
           </div>
         </div>
         <div class="absolute bottom-0 left-0 right-0 h-16">

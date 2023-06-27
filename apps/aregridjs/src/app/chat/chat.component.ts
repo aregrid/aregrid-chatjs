@@ -1,11 +1,4 @@
-import {
-  Component,
-  OnInit,
-  ElementRef,
-  Renderer2,
-  Directive,
-  CUSTOM_ELEMENTS_SCHEMA,
-} from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AFFiNEComponent } from '../affine/affine.component';
 import { HeaderComponent } from './header/header.component';
@@ -32,6 +25,8 @@ export class ChatComponent implements OnInit {
   chatMessages: { avatar: string; userName: string; content: string }[] = [];
   currentIndex = 0;
   timer: any;
+  @ViewChild('chatBottom') chatBottom!: ElementRef;
+
   ngOnInit() {
     const messages = ChatHistoryMock.getMessages();
 
@@ -40,10 +35,22 @@ export class ChatComponent implements OnInit {
         const newMessage = messages[this.currentIndex];
         this.chatMessages.push(newMessage);
         this.currentIndex++;
+        // 调用滚动方法
+        this.scrollToBottom();
       } else {
         clearInterval(this.timer);
       }
     }, 500);
+  }
+
+  // 滚动方法
+  scrollToBottom() {
+    setTimeout(() => {
+      this.chatBottom.nativeElement.scrollIntoView({
+        behavior: 'smooth',
+        block: 'end',
+      });
+    });
   }
   // Inside your component class
 
