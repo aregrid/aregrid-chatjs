@@ -48,18 +48,18 @@
               [(ngModel)]="newMessage"
               (keyup.enter)="sendMessage()"
               placeholder="Type a message..."
-              class="flex-grow outline-none px-2 py-1 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-blue-500"
+              class="flex-grow outline-none px-4 py-2 bg-gray-700 rounded-lg border border-gray-300 focus:border-purple-500 focus:ring-purple-500"
             />
             <button
               type="button"
-              class="ml-2 px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600"
+              class="ml-2 px-3 py-1 bg-purple-600 hover:bg-purple-700 text-white rounded"
               (click)="sendMessage()"
             >
               Send
             </button>
             <button
               type="button"
-              class="ml-2 px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600"
+              class="ml-2 px-3 py-1 bg-purple-600 hover:bg-purple-700 text-white rounded"
               (click)="sendMessage('affine')"
             >
               Send affine
