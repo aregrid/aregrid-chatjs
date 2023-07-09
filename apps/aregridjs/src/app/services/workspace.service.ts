@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, first } from 'rxjs';
 import { v4 as uuidv4 } from 'uuid';
+import { NgxIndexedDBService } from 'ngx-indexed-db';
+
 export interface ChatMessage {
   id?: string;
   userAvatar: string;
@@ -32,69 +34,87 @@ export class WorkspaceService {
   get currentWorkspace$(): Observable<string> {
     return this.currentWorkspaceSubject.asObservable();
   }
+  constructor(private indexedDBService: NgxIndexedDBService) {
+    // Initialize from IndexedDB
+    this.initializeFromIndexedDB();
+  }
 
-  constructor() {
-    // Initialize with some default workspaces
-    const DEFAULT_WORKSPACES = [
-      {
-        id: uuidv4(),
-        avatar: 'https://example.com/lifestyle.jpg',
-        name: 'Life',
-        subtitle: 'Record special moments',
-        chatMessages: [
-          {
-            userAvatar: 'https://avatars.githubusercontent.com/u/5910926?v=4',
-            userName: 'Chi Zhang',
-            type: 'affine',
-            content: '',
-          },
-          {
-            userAvatar: 'https://avatars.githubusercontent.com/u/5910926?v=4',
-            userName: 'Chi Zhang',
-            content:
-              "I have some ideas for the new iteration of aregridjs. Let's discuss!",
-            type: 'text',
-          },
-          {
-            userAvatar:
-              'https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/35/35547e0ab2d4ff89ed4d1b5347f2ec27170ee224_full.jpg',
-            userName: 'Jack',
-            content:
-              "Sure, I'm excited to hear your ideas. Let's make aregridjs even better!",
-            type: 'text',
-          },
-          {
-            userAvatar: 'https://avatars.githubusercontent.com/u/5910926?v=4',
-            userName: 'Chi Zhang',
-            content:
-              'I think we should prioritize improving the documentation.',
-            type: 'text',
-          },
+  private initializeFromIndexedDB() {
+    this.indexedDBService
+      .getAll('workspaces')
+      .subscribe((workspaces: unknown[]) => {
+        if (workspaces && workspaces.length > 0) {
+          this.setWorkspaces(workspaces as Workspace[]);
+          this.setCurrentWorkspaceId((workspaces[0] as Workspace)?.id);
+        } else {
+          const defaultWorkspaces: Workspace[] = [
+            {
+              id: uuidv4(),
+              avatar: 'https://example.com/lifestyle.jpg',
+              name: 'Life',
+              subtitle: 'Record special moments',
+              chatMessages: [
+                {
+                  userAvatar:
+                    'https://avatars.githubusercontent.com/u/5910926?v=4',
+                  userName: 'Chi Zhang',
+                  type: 'affine',
+                  content: '',
+                },
+                {
+                  userAvatar:
+                    'https://avatars.githubusercontent.com/u/5910926?v=4',
+                  userName: 'Chi Zhang',
+                  content:
+                    "I have some ideas for the new iteration of aregridjs. Let's discuss!",
+                  type: 'text',
+                },
+                {
+                  userAvatar:
+                    'https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/35/35547e0ab2d4ff89ed4d1b5347f2ec27170ee224_full.jpg',
+                  userName: 'Jack',
+                  content:
+                    "Sure, I'm excited to hear your ideas. Let's make aregridjs even better!",
+                  type: 'text',
+                },
+                {
+                  userAvatar:
+                    'https://avatars.githubusercontent.com/u/5910926?v=4',
+                  userName: 'Chi Zhang',
+                  content:
+                    'I think we should prioritize improving the documentation.',
+                  type: 'text',
+                },
+                {
+                  userAvatar:
+                    'https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/35/35547e0ab2d4ff89ed4d1b5347f2ec27170ee224_full.jpg',
+                  userName: 'Jack',
+                  content:
+                    'We can gather feedback from the community for feature requests.',
+                  type: 'text',
+                },
+                {
+                  userAvatar:
+                    'https://avatars.githubusercontent.com/u/5910926?v=4',
+                  userName: 'Chi Zhang',
+                  content: 'I will prepare a roadmap for the next iteration.',
+                  type: 'text',
+                },
+              ],
+            },
+          ];
 
-          {
-            userAvatar:
-              'https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/35/35547e0ab2d4ff89ed4d1b5347f2ec27170ee224_full.jpg',
-            userName: 'Jack',
-            content:
-              'We can gather feedback from the community for feature requests.',
-            type: 'text',
-          },
+          this.setWorkspaces(defaultWorkspaces);
+          this.updateIndexedDB(defaultWorkspaces);
+        }
+      });
+  }
 
-          {
-            userAvatar: 'https://avatars.githubusercontent.com/u/5910926?v=4',
-            userName: 'Chi Zhang',
-            content: 'I will prepare a roadmap for the next iteration.',
-            type: 'text',
-          },
-        ],
-      },
-    ];
-    this.setWorkspaces(DEFAULT_WORKSPACES);
-
-    this.workspaces$.pipe(first()).subscribe((workspaces) => {
-      if (workspaces.length > 0) {
-        this.setCurrentWorkspaceId(workspaces[0].id);
-      }
+  private updateIndexedDB(workspaces: Workspace[]) {
+    this.indexedDBService.clear('workspaces').subscribe(() => {
+      this.indexedDBService.add('workspaces', workspaces).subscribe(() => {
+        console.log('Workspace data updated in IndexedDB');
+      });
     });
   }
   public getWorkspaceById(workspaceId: string): Workspace | undefined {
@@ -114,9 +134,11 @@ export class WorkspaceService {
     const currentWorkspaces = this.getWorkspaces();
     const updatedWorkspaces = [...currentWorkspaces, workspace];
     this.workspacesSubject.next(updatedWorkspaces);
+    this.updateIndexedDB(updatedWorkspaces);
   }
   setWorkspaces(workspaces: Workspace[]): void {
     this.workspacesSubject.next(workspaces);
+    this.updateIndexedDB(workspaces);
   }
   updateWorkspace(workspaceId: string, updatedWorkspace: Workspace): void {
     const currentWorkspaces = this.getWorkspaces();
@@ -126,6 +148,7 @@ export class WorkspaceService {
     if (workspaceIndex !== -1) {
       currentWorkspaces[workspaceIndex] = updatedWorkspace;
       this.workspacesSubject.next(currentWorkspaces);
+      this.updateIndexedDB(currentWorkspaces);
     }
   }
 
@@ -142,6 +165,7 @@ export class WorkspaceService {
       if (workspace?.chatMessages) {
         workspace.chatMessages.push(chatMessage);
         this.workspacesSubject.next(updatedWorkspaces);
+        this.updateIndexedDB(updatedWorkspaces);
       }
     }
   }
