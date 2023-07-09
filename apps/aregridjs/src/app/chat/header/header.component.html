@@ -50,8 +50,16 @@
         </div>
       </div>
     </div>
-    <div class="text-white focus:outline-none hover:underline">
-      <mat-icon (click)="toggleHeader()">expand_less</mat-icon>
+    <div
+      class="flex items-center text-white focus:outline-none hover:underline"
+    >
+      <button
+        class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded text-sm"
+      >
+        <mat-icon class="mr-2 relative top-1 text-xl">sd_storage</mat-icon>
+        <span>Save Data As File</span>
+      </button>
+      <mat-icon class="ml-2" (click)="toggleHeader()">expand_less</mat-icon>
     </div>
   </header>
 </div>
