@@ -7,7 +7,7 @@ export default {
       pages: [
         {
           id: 'hello-world',
-          title: 'AFFiNE - not just a note taking app',
+          title: 'Default note',
           createDate: 1686627549555,
           subpageIds: [],
           jumpOnce: false,
@@ -45,7 +45,7 @@ export default {
           'U2hR9Lu1E7',
           'nOERveFG0j',
         ],
-        'prop:title': [{ insert: 'AFFiNE - not just a note taking app' }],
+        'prop:title': [{ insert: 'Default Note' }],
       },
       '4-IQVC-U5A': {
         'sys:id': '4-IQVC-U5A',
