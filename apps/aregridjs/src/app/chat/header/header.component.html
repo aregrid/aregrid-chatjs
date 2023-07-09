@@ -50,15 +50,32 @@
         </div>
       </div>
     </div>
-    <div
-      class="flex items-center text-white focus:outline-none hover:underline"
-    >
+    <div class="flex items-center text-white">
       <button
-        class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded text-sm"
+        class="bg-gray-600 hover:bg-gray-700 text-white py-2 px-2 rounded text-sm shadow-md mr-2"
+        (click)="exportDataAsFile()"
       >
-        <mat-icon class="mr-2 relative top-1 text-xl">sd_storage</mat-icon>
-        <span>Save Data As File</span>
+        <mat-icon class="mr-1 relative top-1 text-xl">save_alt</mat-icon>
+        <span>Export Data</span>
       </button>
+
+      <button
+        class="bg-gray-600 hover:bg-gray-700 text-white py-2 px-2 rounded text-sm shadow-md"
+        (click)="fileInput.click()"
+      >
+        <mat-icon class="mr-1 relative top-1 text-xl"
+          >settings_backup_restore</mat-icon
+        >
+        <span>Import Data</span>
+        <input
+          type="file"
+          accept=".aregrid"
+          style="display: none"
+          #fileInput
+          (input)="importDataFromAregrid($event)"
+        />
+      </button>
+
       <mat-icon class="ml-2" (click)="toggleHeader()">expand_less</mat-icon>
     </div>
   </header>

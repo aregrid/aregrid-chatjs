@@ -172,4 +172,18 @@ export class WorkspaceService {
       }
     }
   }
+  exportData() {
+    return this.indexedDBService.getAll('workspaces');
+  }
+
+  importDataFromAregrid(file: File) {
+    const reader = new FileReader();
+
+    reader.onload = (event: any) => {
+      const importedData = JSON.parse(event.target.result);
+      this.setWorkspaces(importedData);
+    };
+
+    reader.readAsText(file);
+  }
 }
