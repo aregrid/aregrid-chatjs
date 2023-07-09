@@ -47,7 +47,7 @@ export class SidebarComponent {
     const workspace = {
       id: id,
       avatar: 'https://example.com/love.jpg',
-      name: id,
+      name: 'Untitled',
       subtitle: 'No subtitle',
       chatMessages: [],
     };

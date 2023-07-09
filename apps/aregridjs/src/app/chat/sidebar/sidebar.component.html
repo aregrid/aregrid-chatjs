@@ -1,6 +1,6 @@
 <div
   class="sm:w-72 max-sm:w-full flex flex-col h-screen bg-gray-800 text-white transition-all duration-300 shadow-md"
-  [ngClass]="{ 'sm:w-72': !sidebarCollapsed, 'sm:w-20': sidebarCollapsed }"
+  [ngClass]="{ 'sm:w-72': !sidebarCollapsed, 'sm:w-16': sidebarCollapsed }"
 >
   <div
     class="p-4 flex-shrink h-5/6"
@@ -12,10 +12,10 @@
     <h2 class="text-lg font-semibold mb-4">Workspaces</h2>
     <ul class="space-y-2">
       <aregrid-workspace-item
-        class="flex items-center p-2 space-x-4 hover:shadow-lg hover:transform hover:-rotate-2 transition duration-300 hover:bg-gray-600 hover:rounded-xl"
+        class="flex rounded-xl items-center p-2 space-x-2 hover:shadow-lg hover:transform hover:-rotate-1 transition duration-300 hover:bg-gray-600 hover:rounded-xl"
         *ngFor="let workspace of workspaces"
         [ngClass]="{
-          '-rotate-2 bg-gray-600 rounded-xl': workspace.id === workspaceId
+          '-rotate-1 bg-gray-600 rounded-xl': workspace.id === workspaceId
         }"
         [avatar]="workspace.avatar"
         [name]="workspace.name"
@@ -34,7 +34,7 @@
     </ul>
   </div>
   <div
-    class="p-4 border-t border-gray-600 flex items-center flex-shrink-0 justify-between"
+    class="p-4 flex items-center flex-shrink-0 justify-between"
     [ngClass]="{
       hidden: sidebarCollapsed
     }"
@@ -69,7 +69,7 @@
     [ngClass]="{
       hidden: !sidebarCollapsed
     }"
-    class="p-4 shadow-md flex items-center flex-shrink-0 justify-between"
+    class="p-4 flex items-center flex-shrink-0 justify-between"
   >
     <button class="text-gray-400 text-sm" (click)="toggleSidebar()">
       <mat-icon>arrow_forward</mat-icon>
