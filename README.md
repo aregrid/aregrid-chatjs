@@ -1,6 +1,8 @@
 # Aregridjs
 
-<img width="1724" alt="image" src="https://github.com/aregrid/aregridjs/assets/5910926/beae4caa-dd1e-4dba-a915-bdc16e9bd41f">
+
+<img width="1723" alt="image" src="https://github.com/aregrid/aregridjs/assets/5910926/e4497b68-0679-4d72-b76f-08c77e926077">
+
 
 <a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
 
