@@ -1,6 +1,6 @@
 <div
-  class="w-72 flex flex-col h-screen bg-gradient-to-r from-gray-900 to-gray-600 text-gray-300 bg-opacity-20 backdrop-filter backdrop-blur-md transition-all duration-300"
-  [ngClass]="{ 'w-72': !sidebarCollapsed, 'w-20': sidebarCollapsed }"
+  class="sm:w-72 max-sm:w-full flex flex-col h-screen bg-gradient-to-r from-gray-900 to-gray-600 text-gray-300 bg-opacity-20 backdrop-filter backdrop-blur-md transition-all duration-300"
+  [ngClass]="{ 'sm:w-72': !sidebarCollapsed, 'sm:w-20': sidebarCollapsed }"
 >
   <div
     class="p-4 flex-shrink h-5/6"
@@ -15,7 +15,7 @@
         class="flex items-center p-2 space-x-4 hover:shadow-lg hover:transform hover:-rotate-2 transition duration-300 hover:bg-gray-600 hover:rounded-xl"
         *ngFor="let workspace of workspaces"
         [ngClass]="{
-          '-rotate-2 bg-gray-600 rounded-xl': workspace.id == workspaceId
+          '-rotate-2 bg-gray-600 rounded-xl': workspace.id === workspaceId
         }"
         [avatar]="workspace.avatar"
         [name]="workspace.name"
