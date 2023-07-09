@@ -5,7 +5,7 @@
     class="fixed bottom-4 right-4 bg-blue-500 text-white px-4 py-2 rounded-full transition-all duration-300"
     (click)="toggleHeader()"
   >
-    Show Header
+    <mat-icon>fullscreen</mat-icon>
   </button>
 
   <header
@@ -50,11 +50,33 @@
         </div>
       </div>
     </div>
-    <button
-      class="text-white text-sm font-semibold focus:outline-none hover:underline"
-      (click)="toggleHeader()"
-    >
-      {{ !isHeaderVisible ? 'Show' : 'Hide' }}
-    </button>
+    <div class="flex items-center text-white">
+      <button
+        class="bg-gray-600 hover:bg-gray-700 text-white py-2 px-2 rounded text-sm shadow-md mr-2"
+        (click)="exportDataAsFile()"
+      >
+        <mat-icon class="mr-1 relative top-1 text-xl">save_alt</mat-icon>
+        <span>Export Data</span>
+      </button>
+
+      <button
+        class="bg-gray-600 hover:bg-gray-700 text-white py-2 px-2 rounded text-sm shadow-md"
+        (click)="fileInput.click()"
+      >
+        <mat-icon class="mr-1 relative top-1 text-xl"
+          >settings_backup_restore</mat-icon
+        >
+        <span>Import Data</span>
+        <input
+          type="file"
+          accept=".aregrid"
+          style="display: none"
+          #fileInput
+          (input)="importDataFromAregrid($event)"
+        />
+      </button>
+
+      <mat-icon class="ml-2" (click)="toggleHeader()">expand_less</mat-icon>
+    </div>
   </header>
 </div>

@@ -3,14 +3,18 @@ import { CommonModule } from '@angular/common';
 import { WorkspaceItemComponent } from './workspace-item/workspace-item.component';
 import { WorkspaceService, Workspace } from '../../services/workspace.service';
 import { UserService, User } from '../../services/user.service';
+import { v4 as uuidv4 } from 'uuid';
+import { MatIconModule } from '@angular/material/icon';
+
 @Component({
   selector: 'aregrid-sidebar',
   standalone: true,
-  imports: [CommonModule, WorkspaceItemComponent],
+  imports: [CommonModule, WorkspaceItemComponent, MatIconModule],
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss'],
 })
 export class SidebarComponent {
+  workspaceId!: string;
   workspaces!: Workspace[];
   user!: User;
   sidebarCollapsed = false;
@@ -31,26 +35,24 @@ export class SidebarComponent {
       this.workspaces = workspaces;
     });
 
-    const DEFAULT_WORKSPACES = [
-      {
-        avatar: 'https://example.com/lifestyle.jpg',
-        name: 'Life',
-        subtitle: 'Record special moments',
-      },
-      {
-        avatar: 'https://example.com/creativity.jpg',
-        name: 'Creativity',
-        subtitle: 'Explore artistic expressions',
-      },
-    ];
-    this.workspaceService.setWorkspaces(DEFAULT_WORKSPACES);
+    this.workspaceService.currentWorkspace$.subscribe((workspaceId: string) => {
+      this.workspaceId = workspaceId;
+    });
+  }
+  switchWorkspace(workspaceId: string) {
+    this.workspaceService.setCurrentWorkspaceId(workspaceId);
   }
   addWorkspace() {
+    const id = uuidv4();
     const workspace = {
+      id: id,
       avatar: 'https://example.com/love.jpg',
-      name: 'Love',
-      subtitle: 'Celebrate the power of love',
+      name: id,
+      subtitle: 'No subtitle',
+      chatMessages: [],
     };
     this.workspaceService.addWorkspace(workspace);
+
+    this.switchWorkspace(id);
   }
 }
