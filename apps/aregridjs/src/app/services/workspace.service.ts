@@ -88,13 +88,6 @@ export class WorkspaceService {
           },
         ],
       },
-      {
-        id: uuidv4(),
-        avatar: 'https://example.com/creativity.jpg',
-        name: 'Creativity',
-        subtitle: 'Explore artistic expressions',
-        chatMessages: [],
-      },
     ];
     this.setWorkspaces(DEFAULT_WORKSPACES);
 

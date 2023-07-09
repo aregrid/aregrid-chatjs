@@ -33,11 +33,12 @@ export class SidebarComponent {
     });
   }
   addWorkspace() {
+    const id = uuidv4();
     const workspace = {
-      id: uuidv4(),
+      id: id,
       avatar: 'https://example.com/love.jpg',
-      name: 'Love',
-      subtitle: 'Celebrate the power of love',
+      name: id,
+      subtitle: 'No subtitle',
     };
     this.workspaceService.addWorkspace(workspace);
   }
