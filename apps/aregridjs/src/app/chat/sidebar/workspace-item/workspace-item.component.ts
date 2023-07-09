@@ -12,6 +12,7 @@ export class WorkspaceItemComponent {
   @Input() avatar: string | undefined;
   @Input() name: string | undefined;
   @Input() subtitle: string | undefined;
+  @Input() sidebarCollapsed = false;
   generateRandomGradient(name: string | undefined) {
     if (!name) name = 'default';
     const colors = [

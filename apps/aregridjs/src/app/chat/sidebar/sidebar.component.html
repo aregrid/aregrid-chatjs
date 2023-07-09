@@ -1,15 +1,15 @@
 <div
   class="sm:w-72 max-sm:w-full flex flex-col h-screen bg-gray-800 text-white transition-all duration-300 shadow-md"
-  [ngClass]="{ 'sm:w-72': !sidebarCollapsed, 'sm:w-16': sidebarCollapsed }"
+  [ngClass]="{ 'sm:w-72': !sidebarCollapsed, 'sm:w-20': sidebarCollapsed }"
 >
-  <div
-    class="p-4 flex-shrink h-5/6"
-    [ngClass]="{
-      hidden: sidebarCollapsed
-    }"
-  >
+  <div class="p-4 flex-shrink h-5/6">
     <!-- Workspace 列表 -->
-    <h2 class="text-lg font-semibold mb-4">Workspaces</h2>
+    <h2
+      class="text-lg font-semibold mb-4"
+      [ngClass]="{ hidden: sidebarCollapsed }"
+    >
+      Workspaces
+    </h2>
     <ul class="space-y-2">
       <aregrid-workspace-item
         class="flex rounded-xl items-center p-2 space-x-2 hover:shadow-lg hover:transform hover:-rotate-1 transition duration-300 hover:bg-gray-600 hover:rounded-xl"
@@ -20,59 +20,43 @@
         [avatar]="workspace.avatar"
         [name]="workspace.name"
         [subtitle]="workspace.subtitle"
+        [sidebarCollapsed]="sidebarCollapsed"
         (click)="switchWorkspace(workspace.id)"
       ></aregrid-workspace-item>
 
       <div class="flex justify-center">
         <button
-          class="text-white text-sm rounded-lg px-3 py-2 bg-purple-600 hover:bg-purple-700 transition duration-300"
+          class="text-white text-sm rounded-lg px-2 py-2 bg-purple-600 hover:bg-purple-700 transition duration-300"
           (click)="addWorkspace()"
+          [ngClass]="{ hidden: sidebarCollapsed }"
         >
           Add Workspace +
+        </button>
+        <button
+          class="text-white text-sm rounded-lg px-4 py-2 bg-purple-600 hover:bg-purple-700 transition duration-300"
+          (click)="addWorkspace()"
+          [ngClass]="{ hidden: !sidebarCollapsed }"
+        >
+          +
         </button>
       </div>
     </ul>
   </div>
   <div
     class="p-4 flex items-center flex-shrink-0 justify-between"
-    [ngClass]="{
-      hidden: sidebarCollapsed
-    }"
+    (click)="toggleSidebar()"
   >
     <div class="flex items-center">
       <img
         src="{{ user.avatar }}"
         alt="User Avatar"
-        class="w-8 h-8 rounded-full"
+        class="w-10 h-10 rounded-full"
       />
-      <span class="ml-2 font-semibold">{{ user.name }}</span>
+      <span
+        class="ml-2 font-semibold"
+        [ngClass]="{ hidden: sidebarCollapsed }"
+        >{{ user.name }}</span
+      >
     </div>
-    <div class="flex items-center">
-      <button class="text-gray-400 text-sm" (click)="toggleSidebar()">
-        <mat-icon>arrow_back</mat-icon>
-      </button>
-    </div>
-  </div>
-  <div
-    class="p-4 flex-shrink h-5/6"
-    [ngClass]="{
-      hidden: !sidebarCollapsed
-    }"
-  >
-    <img
-      src="{{ user.avatar }}"
-      alt="User Avatar"
-      class="w-8 h-8 rounded-full"
-    />
-  </div>
-  <div
-    [ngClass]="{
-      hidden: !sidebarCollapsed
-    }"
-    class="p-4 flex items-center flex-shrink-0 justify-between"
-  >
-    <button class="text-gray-400 text-sm" (click)="toggleSidebar()">
-      <mat-icon>arrow_forward</mat-icon>
-    </button>
   </div>
 </div>
