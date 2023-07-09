@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, first } from 'rxjs';
+import { BehaviorSubject, Observable, forkJoin } from 'rxjs';
 import { v4 as uuidv4 } from 'uuid';
 import { NgxIndexedDBService } from 'ngx-indexed-db';
 
@@ -105,14 +105,17 @@ export class WorkspaceService {
           ];
 
           this.setWorkspaces(defaultWorkspaces);
-          this.updateIndexedDB(defaultWorkspaces);
+          this.setCurrentWorkspaceId((defaultWorkspaces[0] as Workspace)?.id);
         }
       });
   }
 
   private updateIndexedDB(workspaces: Workspace[]) {
     this.indexedDBService.clear('workspaces').subscribe(() => {
-      this.indexedDBService.add('workspaces', workspaces).subscribe(() => {
+      const addRequests = workspaces.map((workspace) =>
+        this.indexedDBService.add('workspaces', workspace)
+      );
+      forkJoin(addRequests).subscribe(() => {
         console.log('Workspace data updated in IndexedDB');
       });
     });
