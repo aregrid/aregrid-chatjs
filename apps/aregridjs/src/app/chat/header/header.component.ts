@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { trigger, transition, style, animate } from '@angular/animations';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'aregrid-header',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, MatIconModule],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })

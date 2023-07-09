@@ -3,12 +3,12 @@ import { CommonModule } from '@angular/common';
 import { AFFiNEComponent } from '../affine/affine.component';
 import { HeaderComponent } from './header/header.component';
 import { ChatMessageComponent } from './chat-message/chat-message.component';
-import { ChatHistoryMock, ChatMessage } from './chat-history-mock';
 import { FooterComponent } from './footer/footer.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { UserService, User } from '../services/user.service';
 import { FormsModule } from '@angular/forms';
 import { Workspace, WorkspaceService } from '../services/workspace.service';
+
 @Component({
   selector: 'aregrid-chat',
   standalone: true,

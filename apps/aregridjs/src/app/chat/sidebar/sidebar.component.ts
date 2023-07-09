@@ -4,15 +4,17 @@ import { WorkspaceItemComponent } from './workspace-item/workspace-item.componen
 import { WorkspaceService, Workspace } from '../../services/workspace.service';
 import { UserService, User } from '../../services/user.service';
 import { v4 as uuidv4 } from 'uuid';
+import { MatIconModule } from '@angular/material/icon';
+
 @Component({
   selector: 'aregrid-sidebar',
   standalone: true,
-  imports: [CommonModule, WorkspaceItemComponent],
+  imports: [CommonModule, WorkspaceItemComponent, MatIconModule],
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss'],
 })
 export class SidebarComponent {
-  workspaceId!: String;
+  workspaceId!: string;
   workspaces!: Workspace[];
   user!: User;
   sidebarCollapsed = false;
@@ -33,7 +35,7 @@ export class SidebarComponent {
       this.workspaces = workspaces;
     });
 
-    this.workspaceService.currentWorkspace$.subscribe((workspaceId: String) => {
+    this.workspaceService.currentWorkspace$.subscribe((workspaceId: string) => {
       this.workspaceId = workspaceId;
     });
   }
