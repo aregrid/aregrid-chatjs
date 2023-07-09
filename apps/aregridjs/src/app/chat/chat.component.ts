@@ -35,7 +35,7 @@ export class ChatComponent implements OnInit {
   };
 
   @ViewChild('chatBottom') chatBottom!: ElementRef;
-  currentIndex = 0;
+  // currentIndex = 0;
   newMessage = '';
   timer: any;
   user!: User;
@@ -87,7 +87,6 @@ export class ChatComponent implements OnInit {
         type: 'text',
       });
     }
-
     this.newMessage = '';
     this.scrollToBottom();
     this.workspaceService.updateWorkspace(this.workspace.id, this.workspace);

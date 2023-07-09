@@ -12,6 +12,7 @@ import { v4 as uuidv4 } from 'uuid';
   styleUrls: ['./sidebar.component.scss'],
 })
 export class SidebarComponent {
+  workspaceId!: String;
   workspaces!: Workspace[];
   user!: User;
   sidebarCollapsed = false;
@@ -31,6 +32,13 @@ export class SidebarComponent {
     this.workspaceService.workspaces$.subscribe((workspaces: Workspace[]) => {
       this.workspaces = workspaces;
     });
+
+    this.workspaceService.currentWorkspace$.subscribe((workspaceId: String) => {
+      this.workspaceId = workspaceId;
+    });
+  }
+  switchWorkspace(workspaceId: string) {
+    this.workspaceService.setCurrentWorkspaceId(workspaceId);
   }
   addWorkspace() {
     const id = uuidv4();
@@ -39,7 +47,10 @@ export class SidebarComponent {
       avatar: 'https://example.com/love.jpg',
       name: id,
       subtitle: 'No subtitle',
+      chatMessages: [],
     };
     this.workspaceService.addWorkspace(workspace);
+
+    this.switchWorkspace(id);
   }
 }

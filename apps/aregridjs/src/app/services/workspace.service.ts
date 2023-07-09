@@ -93,13 +93,17 @@ export class WorkspaceService {
 
     this.workspaces$.pipe(first()).subscribe((workspaces) => {
       if (workspaces.length > 0) {
-        this.currentWorkspaceSubject.next(workspaces[0].id);
+        this.setCurrentWorkspaceId(workspaces[0].id);
       }
     });
   }
   public getWorkspaceById(workspaceId: string): Workspace | undefined {
     const workspaces = this.getWorkspaces();
     return workspaces.find((workspace) => workspace.id === workspaceId);
+  }
+
+  setCurrentWorkspaceId(workspaceId: string): void {
+    this.currentWorkspaceSubject.next(workspaceId);
   }
 
   getWorkspaces(): Workspace[] {

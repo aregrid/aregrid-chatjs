@@ -15,11 +15,12 @@
         class="flex items-center p-2 space-x-4 hover:shadow-lg hover:transform hover:-rotate-2 transition duration-300 hover:bg-gray-600 hover:rounded-xl"
         *ngFor="let workspace of workspaces"
         [ngClass]="{
-          '-rotate-2 bg-gray-600 rounded-xl': workspace.name === 'Life'
+          '-rotate-2 bg-gray-600 rounded-xl': workspace.id == workspaceId
         }"
         [avatar]="workspace.avatar"
         [name]="workspace.name"
         [subtitle]="workspace.subtitle"
+        (click)="switchWorkspace(workspace.id)"
       ></aregrid-workspace-item>
 
       <div class="flex justify-center">
