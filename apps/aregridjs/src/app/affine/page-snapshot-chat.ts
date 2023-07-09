@@ -45,7 +45,7 @@ export default {
           'U2hR9Lu1E7',
           'nOERveFG0j',
         ],
-        'prop:title': [{ insert: 'Create a new affine' }],
+        'prop:title': [{ insert: 'Scurm note' }],
       },
       '4-IQVC-U5A': {
         'sys:id': '4-IQVC-U5A',
