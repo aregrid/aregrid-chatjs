@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { WorkspaceItemComponent } from './workspace-item/workspace-item.component';
 import { WorkspaceService, Workspace } from '../../services/workspace.service';
 import { UserService, User } from '../../services/user.service';
+import { v4 as uuidv4 } from 'uuid';
 @Component({
   selector: 'aregrid-sidebar',
   standalone: true,
@@ -30,23 +31,10 @@ export class SidebarComponent {
     this.workspaceService.workspaces$.subscribe((workspaces: Workspace[]) => {
       this.workspaces = workspaces;
     });
-
-    const DEFAULT_WORKSPACES = [
-      {
-        avatar: 'https://example.com/lifestyle.jpg',
-        name: 'Life',
-        subtitle: 'Record special moments',
-      },
-      {
-        avatar: 'https://example.com/creativity.jpg',
-        name: 'Creativity',
-        subtitle: 'Explore artistic expressions',
-      },
-    ];
-    this.workspaceService.setWorkspaces(DEFAULT_WORKSPACES);
   }
   addWorkspace() {
     const workspace = {
+      id: uuidv4(),
       avatar: 'https://example.com/love.jpg',
       name: 'Love',
       subtitle: 'Celebrate the power of love',

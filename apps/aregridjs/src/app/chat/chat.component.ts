@@ -8,6 +8,7 @@ import { FooterComponent } from './footer/footer.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { UserService, User } from '../services/user.service';
 import { FormsModule } from '@angular/forms';
+import { Workspace, WorkspaceService } from '../services/workspace.service';
 @Component({
   selector: 'aregrid-chat',
   standalone: true,
@@ -24,43 +25,62 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./chat.component.scss'],
 })
 export class ChatComponent implements OnInit {
-  chatMessages: ChatMessage[] = [];
+  // chatMessages: ChatMessage[] = [];
+  workspace: Workspace = {
+    id: '',
+    avatar: '',
+    name: '',
+    subtitle: '',
+    chatMessages: [],
+  };
+
   @ViewChild('chatBottom') chatBottom!: ElementRef;
   currentIndex = 0;
   newMessage = '';
   timer: any;
   user!: User;
 
-  constructor(private userService: UserService) {}
+  constructor(
+    private userService: UserService,
+    private workspaceService: WorkspaceService
+  ) {}
   ngOnInit() {
     this.userService.getUser().subscribe((user: User) => {
       this.user = user;
     });
 
-    const messages = ChatHistoryMock.getMessages();
+    // const messages = ChatHistoryMock.getMessages();
 
-    this.timer = setInterval(() => {
-      if (this.currentIndex < messages.length) {
-        const newMessage = messages[this.currentIndex];
-        this.chatMessages.push(newMessage);
-        this.currentIndex++;
-        // 调用滚动方法
-        this.scrollToBottom();
-      } else {
-        clearInterval(this.timer);
+    // this.timer = setInterval(() => {
+    //   if (this.currentIndex < messages.length) {
+    //     const newMessage = messages[this.currentIndex];
+    //     this.chatMessages.push(newMessage);
+    //     this.currentIndex++;
+    //     // 调用滚动方法
+    //     this.scrollToBottom();
+    //   } else {
+    //     clearInterval(this.timer);
+    //   }
+    // }, 500);
+    this.workspaceService.currentWorkspace$.subscribe((workspaceId) => {
+      const workspace = this.workspaceService.getWorkspaceById(workspaceId);
+      console.log(`current workspace: ${workspace?.name}`);
+      if (workspace) {
+        this.workspace = workspace;
       }
-    }, 500);
+      // this.chatMessages = this.workspace ? this.workspace.chatMessages : [];
+    });
   }
   sendMessage(chatMessageType?: 'text' | 'affine') {
     if (chatMessageType === 'affine') {
-      this.chatMessages.push({
+      this.workspace?.chatMessages?.push({
         content: this.newMessage,
         userName: this.user.name,
         userAvatar: this.user.avatar,
         type: 'affine',
       });
     } else {
-      this.chatMessages.push({
+      this.workspace?.chatMessages?.push({
         content: this.newMessage || 'hello',
         userName: this.user.name,
         userAvatar: this.user.avatar,
@@ -70,6 +90,7 @@ export class ChatComponent implements OnInit {
 
     this.newMessage = '';
     this.scrollToBottom();
+    this.workspaceService.updateWorkspace(this.workspace.id, this.workspace);
   }
 
   // 滚动方法
