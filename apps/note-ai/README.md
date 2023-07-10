@@ -8,7 +8,7 @@
 
 <p align="center">
   <a href="https://github.com/aregrid/aregridjs/blob/main/LICENSE">
-    <img src="https://img.shields.io/github/license/aregrid/aregridjs?label=license&logo=github&color=f80&logoColor=fff" alt="License" />
+    <img src="https://img.shields.io/github/license/aregrid/aregridjs?label=license&logo=github&color=808&logoColor=fff" alt="License" />
   </a>
   <a href="https://github.com/aregrid/aregridjs"><img src="https://img.shields.io/github/stars/aregrid/aregridjs?style=social" alt="note-ai.vercel.app's GitHub repo"></a>
 </p>

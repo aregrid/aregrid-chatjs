@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "nx serve note-ai",
-    "dev:note": "nx serve aregridjs",
+    "dev:aregridjs": "nx serve aregridjs",
     "build": "nx build note-ai",
     "build:aregridjs": "nx build aregridjs"
   },
