@@ -42,24 +42,24 @@
         </div>
         <div class="absolute bottom-0 left-0 right-0 h-16">
           <!-- Slack-style chat input -->
-          <div class="flex rounded-lg shadow p-4">
+          <div class="flex">
             <input
               type="text"
               [(ngModel)]="newMessage"
               (keyup.enter)="sendMessage()"
               placeholder="Type a message..."
-              class="flex-grow outline-none px-4 py-2 bg-gray-700 rounded-lg border border-gray-300 focus:border-purple-500 focus:ring-purple-500"
+              class="flex-grow outline-none text-xs px-4 py-2 bg-gray-700 rounded-lg border border-gray-300 focus:border-purple-500 focus:ring-purple-500"
             />
             <button
               type="button"
-              class="ml-2 px-3 py-1 bg-purple-600 hover:bg-purple-700 text-white rounded"
+              class="ml-2 px-3 py-1 bg-purple-600 hover:bg-purple-700 text-white rounded text-xs"
               (click)="sendMessage()"
             >
               Send
             </button>
             <button
               type="button"
-              class="ml-2 px-3 py-1 bg-purple-600 hover:bg-purple-700 text-white rounded"
+              class="ml-2 px-3 py-1 bg-purple-600 hover:bg-purple-700 text-white rounded text-xs"
               (click)="sendMessage('affine')"
             >
               Send affine

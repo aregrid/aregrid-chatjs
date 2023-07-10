@@ -17,10 +17,10 @@
       'translate-y-full': !isHeaderVisible
     }"
   >
-    <h1 class="text-base font-semibold text-white">Aregrid</h1>
+    <h1 class="text-xs font-semibold text-white">Aregrid</h1>
     <iframe
-      class="text-white text-sm font-semibold focus:outline-none hover:underline flex items-center ml-4"
-      src="https://ghbtns.com/github-btn.html?user=aregrid&repo=aregridjs&type=star&count=true&size=large"
+      class="text-white text-sm font-semibold focus:outline-none hover:underline flex items-center ml-4 mt-3"
+      src="https://ghbtns.com/github-btn.html?user=aregrid&repo=aregridjs&type=star&count=true&size=small"
       frameborder="0"
       scrolling="0"
       width="170"
@@ -51,22 +51,22 @@
       </div>
     </div>
     <div class="flex items-center text-white">
-      <button
-        class="bg-purple-600 hover:bg-purple-700 text-white py-2 px-2 rounded text-sm shadow-md mr-2"
+      <a
+        class="bg-purple-600 hover:bg-purple-700 text-white px-2 pb-2 rounded text-xs shadow-md mr-2"
         (click)="exportDataAsFile()"
       >
-        <mat-icon class="mr-1 relative top-1 text-xl">save_alt</mat-icon>
-        <span>Export Data</span>
-      </button>
+        <mat-icon class="left-1 top-1 relative text-xl">save_alt</mat-icon>
+        Export Data
+      </a>
 
-      <button
-        class="bg-purple-600 hover:bg-purple-700 text-white py-2 px-2 rounded text-sm shadow-md"
+      <a
+        class="bg-purple-600 hover:bg-purple-700 text-white px-2 pb-2 rounded text-xs shadow-md"
         (click)="fileInput.click()"
       >
-        <mat-icon class="mr-1 relative top-1 text-xl"
+        <mat-icon class="left-1 top-1 relative text-xl"
           >settings_backup_restore</mat-icon
         >
-        <span>Import Data</span>
+        Import Data
         <input
           type="file"
           accept=".aregrid"
@@ -74,7 +74,7 @@
           #fileInput
           (input)="importDataFromAregrid($event)"
         />
-      </button>
+      </a>
 
       <mat-icon class="ml-2" (click)="toggleHeader()">expand_less</mat-icon>
     </div>

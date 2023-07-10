@@ -5,12 +5,12 @@
   <div class="p-4 flex-shrink h-5/6">
     <!-- Workspace 列表 -->
     <h2
-      class="text-lg font-semibold mb-4"
+      class="text-sm font-semibold mb-4"
       [ngClass]="{ hidden: sidebarCollapsed }"
     >
       Channels
     </h2>
-    <ul class="space-y-2">
+    <ul class="space-y-2 text-xs">
       <aregrid-workspace-item
         class="flex rounded-xl items-center p-2 space-x-2 hover:shadow-lg hover:transform hover:-rotate-1 transition duration-300 hover:bg-gray-600 hover:rounded-xl"
         *ngFor="let workspace of workspaces"
@@ -26,14 +26,14 @@
 
       <div class="flex justify-center">
         <button
-          class="text-white text-sm rounded-lg px-2 py-2 bg-purple-600 hover:bg-purple-700 transition duration-300"
+          class="text-white rounded-lg px-2 py-2 bg-purple-600 hover:bg-purple-700 transition duration-300"
           (click)="addWorkspace()"
           [ngClass]="{ hidden: sidebarCollapsed }"
         >
           Add Channel +
         </button>
         <button
-          class="text-white text-sm rounded-lg px-4 py-2 bg-purple-600 hover:bg-purple-700 transition duration-300"
+          class="text-white rounded-lg px-4 py-2 bg-purple-600 hover:bg-purple-700 transition duration-300"
           (click)="addWorkspace()"
           [ngClass]="{ hidden: !sidebarCollapsed }"
         >
@@ -42,7 +42,7 @@
       </div>
     </ul>
     <h2
-      class="text-lg font-semibold mb-4"
+      class="text-sm font-semibold mb-4"
       [ngClass]="{ hidden: sidebarCollapsed }"
     >
       Notes
@@ -62,11 +62,9 @@
         alt="User Avatar"
         class="w-10 h-10 rounded-full"
       />
-      <span
-        class="ml-2 font-semibold"
-        [ngClass]="{ hidden: sidebarCollapsed }"
-        >{{ user.name }}</span
-      >
+      <span class="ml-2 text-sm" [ngClass]="{ hidden: sidebarCollapsed }">{{
+        user.name
+      }}</span>
     </div>
   </div>
 </div>
