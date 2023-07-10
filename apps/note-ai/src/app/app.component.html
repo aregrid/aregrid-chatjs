@@ -2,7 +2,7 @@
   <a
     href="https://github.com/toeverything/blocksuite"
     target="_blank"
-    class="absolute bottom-5 left-5 z-10 max-h-fit rounded-lg p-2 transition-colors duration-200 hover:bg-stone-100 sm:bottom-auto sm:top-5"
+    class="print:hidden absolute bottom-5 left-5 z-10 max-h-fit rounded-lg p-2 transition-colors duration-200 hover:bg-stone-100 sm:bottom-auto sm:top-5"
     ><svg
       xmlns="http://www.w3.org/2000/svg"
       width="20"
@@ -19,7 +19,7 @@
   <button
     id="dropdownMenuIconButton"
     (click)="toggleMenu()"
-    class="absolute top-5 right-5 z-10 inline-flex items-center p-2 text-sm font-medium text-center text-gray-900 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none dark:text-white focus:ring-gray-50 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+    class="print:hidden absolute top-5 right-5 z-10 inline-flex items-center p-2 text-sm font-medium text-center text-gray-900 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none dark:text-white focus:ring-gray-50 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
     type="button"
   >
     <svg
@@ -40,7 +40,7 @@
   <div
     id="dropdownDotsHorizontal"
     [ngClass]="{ hidden: !isMenuOpen }"
-    class="absolute top-12 right-5 z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600"
+    class="print:hidden absolute top-12 right-5 z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600"
   >
     <ul
       class="py-2 text-sm text-gray-700 dark:text-gray-200"
