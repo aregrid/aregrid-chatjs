@@ -1,4 +1,6 @@
 <a href="https://note-ai.vercel.app/">
+ <img width="1091" alt="image" src="https://github.com/aregrid/aregridjs/assets/5910926/c9ca5c02-a2db-4d9e-9d3f-718762d0180d">
+
   <h1 align="center">Note AI</h1>
 </a>
 
