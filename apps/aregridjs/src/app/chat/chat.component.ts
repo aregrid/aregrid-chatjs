@@ -1,10 +1,10 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AFFiNEComponent } from '../affine/affine.component';
-import { HeaderComponent } from './header/header.component';
+// import { HeaderComponent } from './header/header.component';
 import { ChatMessageComponent } from './chat-message/chat-message.component';
 import { FooterComponent } from './footer/footer.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
+// import { SidebarComponent } from './sidebar/sidebar.component';
 import { UserService, User } from '../services/user.service';
 import { FormsModule } from '@angular/forms';
 import { Workspace, WorkspaceService } from '../services/workspace.service';
@@ -15,10 +15,10 @@ import { Workspace, WorkspaceService } from '../services/workspace.service';
   imports: [
     CommonModule,
     AFFiNEComponent,
-    HeaderComponent,
+    // HeaderComponent,
     ChatMessageComponent,
     FooterComponent,
-    SidebarComponent,
+    // SidebarComponent,
     FormsModule,
   ],
   templateUrl: './chat.component.html',

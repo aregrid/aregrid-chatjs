@@ -1,6 +1,21 @@
 <main>
-  <router-outlet></router-outlet>
+  <aregrid-header />
+
+  <div class="sm:flex sm:h-screen max-sm:flex-row">
+    <!-- Workspace Sidebar -->
+    <div class="flex">
+      <aregrid-sidebar />
+    </div>
+
+    <!-- Main content (chat area and input field) -->
+    <div
+      class="flex flex-grow flex-col lg:flex-row overflow-hidden bg-gray-700 text-white"
+    >
+      <router-outlet></router-outlet>
+    </div>
+  </div>
 </main>
+
 <div
   class="fixed top-4 right-0 bg-blue-500 text-white p-4 rounded-lg shadow-lg block lg:hidden"
 >

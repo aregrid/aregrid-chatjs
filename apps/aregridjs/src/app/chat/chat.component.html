@@ -1,119 +1,105 @@
-<aregrid-header />
+<!-- Chat Area -->
 
-<div class="sm:flex sm:h-screen max-sm:flex-row">
-  <!-- Workspace Sidebar -->
-  <div class="flex shadow">
-    <aregrid-sidebar />
-  </div>
-
-  <!-- Main content (chat area and input field) -->
+<div class="flex-grow p-6 overflow-y-scroll">
   <div
-    class="flex flex-grow flex-col lg:flex-row overflow-hidden bg-gray-700 text-white"
+    class="flex flex-col relative"
+    [ngStyle]="{ height: 'calc(100% - 4rem)' }"
   >
-    <!-- Chat Area -->
-    <main class="flex-grow p-6 overflow-y-scroll">
-      <div
-        class="flex flex-col relative"
-        [ngStyle]="{ height: 'calc(100% - 4rem)' }"
-      >
-        <div class="flex flex-col flex-grow overflow-y-scroll mt-4">
-          <div class="flex-shrink-0"></div>
-          <div class="flex flex-col mt-4">
-            <ng-container *ngFor="let message of workspace.chatMessages">
-              <aregrid-chat-message
-                *ngIf="message.type === 'affine'"
-                [avatar]="message.userAvatar"
-                [userName]="message.userName"
-                [content]="message.content"
-              >
-                <aregrid-affine templateId="chat"></aregrid-affine>
-              </aregrid-chat-message>
+    <div class="flex flex-col flex-grow overflow-y-scroll mt-4">
+      <div class="flex-shrink-0"></div>
+      <div class="flex flex-col mt-4">
+        <ng-container *ngFor="let message of workspace.chatMessages">
+          <aregrid-chat-message
+            *ngIf="message.type === 'affine'"
+            [avatar]="message.userAvatar"
+            [userName]="message.userName"
+            [content]="message.content"
+          >
+            <aregrid-affine templateId="chat"></aregrid-affine>
+          </aregrid-chat-message>
 
-              <aregrid-chat-message
-                *ngIf="message.type === 'text'"
-                [avatar]="message.userAvatar"
-                [userName]="message.userName"
-                [content]="message.content"
-              >
-              </aregrid-chat-message>
-            </ng-container>
-            <div #chatBottom class="pb-16"></div>
-          </div>
-        </div>
-        <div class="absolute bottom-0 left-0 right-0 h-16">
-          <!-- Slack-style chat input -->
-          <div class="flex">
-            <input
-              type="text"
-              [(ngModel)]="newMessage"
-              (keyup.enter)="sendMessage()"
-              placeholder="Type a message..."
-              class="flex-grow outline-none text-xs px-4 py-2 bg-gray-700 rounded-lg border border-gray-300 focus:border-purple-500 focus:ring-purple-500"
-            />
-            <button
-              type="button"
-              class="ml-2 px-3 py-1 bg-purple-600 hover:bg-purple-700 text-white rounded text-xs"
-              (click)="sendMessage()"
-            >
-              Send
-            </button>
-            <button
-              type="button"
-              class="ml-2 px-3 py-1 bg-purple-600 hover:bg-purple-700 text-white rounded text-xs"
-              (click)="sendMessage('affine')"
-            >
-              Send affine
-            </button>
-            <div class="flex items-center ml-2">
-              <button
-                type="button"
-                class="px-2 py-1 bg-gray-200 rounded-full hover:bg-gray-300"
-                title="Add Emoji"
-              >
-                😄
-              </button>
-              <input
-                type="file"
-                accept="image/*"
-                class="hidden"
-                (change)="handleImageUpload($event)"
-              />
-              <button
-                type="button"
-                class="px-2 py-1 bg-gray-200 rounded-full hover:bg-gray-300"
-                title="Upload Image"
-                (click)="openImageUploader()"
-              >
-                📷
-              </button>
-              <input
-                type="file"
-                accept=".pdf,.docx,.xlsx"
-                class="hidden"
-                (change)="handleDocumentUpload($event)"
-              />
-              <button
-                type="button"
-                class="px-2 py-1 bg-gray-200 rounded-full hover:bg-gray-300"
-                title="Attach Document"
-                (click)="openDocumentUploader()"
-              >
-                📎
-              </button>
-              <button
-                type="button"
-                class="px-2 py-1 bg-gray-200 rounded-full hover:bg-gray-300"
-                title="Schedule Meeting"
-                (click)="openMeetingScheduler()"
-              >
-                📅
-              </button>
-            </div>
-          </div>
+          <aregrid-chat-message
+            *ngIf="message.type === 'text'"
+            [avatar]="message.userAvatar"
+            [userName]="message.userName"
+            [content]="message.content"
+          >
+          </aregrid-chat-message>
+        </ng-container>
+        <div #chatBottom class="pb-16"></div>
+      </div>
+    </div>
+    <div class="absolute bottom-0 left-0 right-0 h-16">
+      <!-- Slack-style chat input -->
+      <div class="flex">
+        <input
+          type="text"
+          [(ngModel)]="newMessage"
+          (keyup.enter)="sendMessage()"
+          placeholder="Type a message..."
+          class="flex-grow outline-none text-xs px-4 py-2 bg-gray-700 rounded-lg border border-gray-300 focus:border-purple-500 focus:ring-purple-500"
+        />
+        <button
+          type="button"
+          class="ml-2 px-3 py-1 bg-purple-600 hover:bg-purple-700 text-white rounded text-xs"
+          (click)="sendMessage()"
+        >
+          Send
+        </button>
+        <button
+          type="button"
+          class="ml-2 px-3 py-1 bg-purple-600 hover:bg-purple-700 text-white rounded text-xs"
+          (click)="sendMessage('affine')"
+        >
+          Send affine
+        </button>
+        <div class="flex items-center ml-2">
+          <button
+            type="button"
+            class="px-2 py-1 bg-gray-200 rounded-full hover:bg-gray-300"
+            title="Add Emoji"
+          >
+            😄
+          </button>
+          <input
+            type="file"
+            accept="image/*"
+            class="hidden"
+            (change)="handleImageUpload($event)"
+          />
+          <button
+            type="button"
+            class="px-2 py-1 bg-gray-200 rounded-full hover:bg-gray-300"
+            title="Upload Image"
+            (click)="openImageUploader()"
+          >
+            📷
+          </button>
+          <input
+            type="file"
+            accept=".pdf,.docx,.xlsx"
+            class="hidden"
+            (change)="handleDocumentUpload($event)"
+          />
+          <button
+            type="button"
+            class="px-2 py-1 bg-gray-200 rounded-full hover:bg-gray-300"
+            title="Attach Document"
+            (click)="openDocumentUploader()"
+          >
+            📎
+          </button>
+          <button
+            type="button"
+            class="px-2 py-1 bg-gray-200 rounded-full hover:bg-gray-300"
+            title="Schedule Meeting"
+            (click)="openMeetingScheduler()"
+          >
+            📅
+          </button>
         </div>
       </div>
-    </main>
-
-    <aregrid-footer />
+    </div>
   </div>
 </div>
+<aregrid-footer />

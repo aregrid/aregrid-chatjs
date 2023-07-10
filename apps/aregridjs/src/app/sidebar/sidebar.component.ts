@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { WorkspaceItemComponent } from './workspace-item/workspace-item.component';
-import { WorkspaceService, Workspace } from '../../services/workspace.service';
-import { UserService, User } from '../../services/user.service';
+import { WorkspaceService, Workspace } from './../services/workspace.service';
+import { UserService, User } from './../services/user.service';
 import { v4 as uuidv4 } from 'uuid';
 import { MatIconModule } from '@angular/material/icon';
 

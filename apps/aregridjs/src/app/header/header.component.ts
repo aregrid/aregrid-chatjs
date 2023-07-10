@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
-import { WorkspaceService } from '../../services/workspace.service';
+import { WorkspaceService } from '../services/workspace.service';
 
 @Component({
   selector: 'aregrid-header',
