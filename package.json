@@ -7,8 +7,6 @@
     "dev:note": "nx serve aregridjs",
     "build": "nx build note-ai",
     "build:aregridjs": "nx build aregridjs"
-
-
   },
   "private": true,
   "dependencies": {
