@@ -9,7 +9,7 @@ import {
   Renderer2,
   Input,
 } from '@angular/core';
-import pageSnapShotForAFFiNE from './page-snapshot-affine';
+import defaultNote from './config/blocksuite-default-note';
 @Component({
   standalone: true,
   imports: [RouterModule, CommonModule],
@@ -32,7 +32,7 @@ export class AppComponent implements AfterViewInit {
     (window as any).blocksuiteEditor = editor;
 
     editor.workspace.importPageSnapshot(
-      pageSnapShotForAFFiNE.data['space:hello-world'],
+      defaultNote.data['space:hello-world'],
       'page0'
     );
     this.editor = editor;
