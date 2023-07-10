@@ -38,6 +38,7 @@ export class AppComponent implements AfterViewInit {
     this.editor = editor;
   }
   exportPDF() {
+    window.print();
     // this.editor.workspace.exportPDF();
   }
 }
