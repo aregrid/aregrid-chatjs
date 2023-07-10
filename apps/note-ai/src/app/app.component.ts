@@ -1,4 +1,5 @@
 import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
 import { SimpleAffineEditor } from '@blocksuite/editor';
 import {
   Component,
@@ -11,7 +12,7 @@ import {
 import pageSnapShotForAFFiNE from './page-snapshot-affine';
 @Component({
   standalone: true,
-  imports: [RouterModule],
+  imports: [RouterModule, CommonModule],
   selector: 'aregrid-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
@@ -19,7 +20,11 @@ import pageSnapShotForAFFiNE from './page-snapshot-affine';
 export class AppComponent implements AfterViewInit {
   @ViewChild('noteBox') messageBox: ElementRef<HTMLDivElement> | null = null;
   constructor(private renderer: Renderer2) {}
-
+  isMenuOpen = false;
+  editor: any;
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
   ngAfterViewInit() {
     const editor = new SimpleAffineEditor();
     this.messageBox && this.messageBox.nativeElement.appendChild(editor);
@@ -30,5 +35,9 @@ export class AppComponent implements AfterViewInit {
       pageSnapShotForAFFiNE.data['space:hello-world'],
       'page0'
     );
+    this.editor = editor;
+  }
+  exportPDF() {
+    // this.editor.workspace.exportPDF();
   }
 }
