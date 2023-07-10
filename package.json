@@ -3,9 +3,12 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "dev": "nx serve aregridjs",
-    "dev:note": "nx serve note-ai",
-    "build": "nx build aregridjs"
+    "dev": "nx servenote-ai",
+    "dev:note": "nx serve aregridjs",
+    "build": "nx build note-ai",
+    "build:aregridjs": "nx build aregridjs"
+
+
   },
   "private": true,
   "dependencies": {
