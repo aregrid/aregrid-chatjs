@@ -8,7 +8,7 @@
       class="text-lg font-semibold mb-4"
       [ngClass]="{ hidden: sidebarCollapsed }"
     >
-      Channel
+      Channels
     </h2>
     <ul class="space-y-2">
       <aregrid-workspace-item
@@ -47,11 +47,9 @@
     >
       Notes
     </h2>
-    <p class="text-gray-300">
+    <p class="text-gray-300" [ngClass]="{ hidden: sidebarCollapsed }">
       Default Note
-      <span class="bg-green-500 text-white px-2 rounded-md">current</span>
     </p>
-    <p class="text-gray-500">None</p>
   </div>
 
   <div
