@@ -2,7 +2,6 @@
   "name": "@aregrid/source",
   "version": "0.0.0",
   "license": "MIT",
-  "type": "module",
   "scripts": {
     "dev": "env-cmd -f ./apps/note-ai/.env.local nx serve note-ai",
     "dev:aregridjs": "nx serve aregridjs",
