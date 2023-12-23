@@ -1,4 +1,4 @@
-# Chatjs
+# aregrid-chatjs
 
 <img width="1726" alt="image" src="https://github.com/aregrid/aregridjs/assets/5910926/cf13ee67-39fe-4e73-9fed-40b711830407">
 
